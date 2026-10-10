@@ -17,6 +17,6 @@ func New(db *sql.DB, cfg config.Config, logger *slog.Logger) http.Handler {
 		teams.NewHandler(db, logger).Register,
 		tasks.NewHandler(tasks.NewStore(db), logger).Register,
 		offers.NewHandler(offers.NewStore(db, tasks.SQLAccess{}), logger).Register,
-		ai.New(cfg.AIMode, cfg.OpenAIKey, cfg.OpenAIModel).Register(logger),
-		ai.NewAssistant(cfg.AIMode, cfg.OpenAIKey, cfg.OpenAIModel, cfg.TranscribeModel, tasks.NewStore(db)).Register(logger))
+		ai.NewWithBase(cfg.AIMode, cfg.OpenAIKey, cfg.OpenAIModel, cfg.AIBaseURL).Register(logger),
+		ai.NewAssistantWithBase(cfg.AIMode, cfg.OpenAIKey, cfg.OpenAIModel, cfg.TranscribeModel, cfg.AIBaseURL, tasks.NewStore(db)).Register(logger))
 }
