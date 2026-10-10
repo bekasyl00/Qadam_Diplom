@@ -24,11 +24,15 @@ type Assistant struct {
 }
 
 func NewAssistant(mode, key, model, transcriptionModel string, store *tasks.Store) *Assistant {
+	return NewAssistantWithBase(mode, key, model, transcriptionModel, "https://api.openai.com/v1", store)
+}
+
+func NewAssistantWithBase(mode, key, model, transcriptionModel, baseURL string, store *tasks.Store) *Assistant {
 	if transcriptionModel == "" {
 		transcriptionModel = "gpt-4o-mini-transcribe"
 	}
 	return &Assistant{mode: mode, key: key, model: model, transcriptionModel: transcriptionModel,
-		base: "https://api.openai.com/v1", tasks: store, slots: make(chan struct{}, 4),
+		base: strings.TrimRight(baseURL, "/"), tasks: store, slots: make(chan struct{}, 4),
 		client: &http.Client{Timeout: 65 * time.Second, CheckRedirect: func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }}}
 }
 
@@ -43,7 +47,7 @@ func (a *Assistant) Register(logger *slog.Logger) func(*http.ServeMux) {
 					}
 				}
 				if a.mode != "live" || a.key == "" {
-					httpapi.Fail(w, logger, httpapi.Problem(503, "ai_not_configured", "AI не подключён. Настройте OPENAI_API_KEY и AI_MODE=live на сервере."))
+					httpapi.Fail(w, logger, httpapi.Problem(503, "ai_not_configured", "AI не подключён. Настройте ключ AI-провайдера и AI_MODE=live на сервере."))
 					return
 				}
 				select {

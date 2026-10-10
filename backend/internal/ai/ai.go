@@ -55,6 +55,14 @@ type Service struct {
 func New(mode, key, model string) *Service {
 	return &Service{mode: mode, key: key, model: model, endpoint: "https://api.openai.com/v1/responses", client: &http.Client{Timeout: 8 * time.Second, CheckRedirect: func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }}, timeout: 15 * time.Second}
 }
+
+func NewWithBase(mode, key, model, baseURL string) *Service {
+	s := New(mode, key, model)
+	if strings.TrimSpace(baseURL) != "" {
+		s.endpoint = strings.TrimRight(baseURL, "/") + "/responses"
+	}
+	return s
+}
 func validateInput(in Input) error {
 	if in.Stage != "clarify" && in.Stage != "assemble" {
 		return httpapi.Invalid(map[string]string{"stage": "Use clarify or assemble."})
