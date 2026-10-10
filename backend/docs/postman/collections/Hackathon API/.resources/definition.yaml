@@ -1,0 +1,15 @@
+$kind: collection
+description: |
+  Qadam backend: PostgreSQL, Task Builder, AI, catalog, proposals and verified progress.
+  Run folders 01-07 in order. IDs and revisions are captured automatically.
+  API keys belong only in the Go server's ignored .env file.
+variables:
+  base_url: "http://127.0.0.1:8080"
+  task_id: ""
+  revision: "0"
+  business_id: "10000000-0000-4000-8000-000000000001"
+  team_id: "00000000-0000-4000-8000-000000000001"
+  second_team_id: "00000000-0000-4000-8000-000000000002"
+  proposal_id: ""
+  rejected_proposal_id: ""
+  milestone_id: ""
