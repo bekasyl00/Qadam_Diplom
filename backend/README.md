@@ -1,126 +1,147 @@
 # Qadam Backend
 
-Go 1.23+, `net/http`, `database/sql`, PostgreSQL, OpenAI Responses API. No ORM.
-The backend implements the task builder, confirmed readiness scores, catalog,
-proposals, manual decisions and one verified milestone per accepted proposal.
-The Vue frontend is integrated through the Vite proxy. See the root README for
-macOS/Linux startup and `../frontend/AI-CONTRACT.md` for chat and voice payloads.
+The Go API handles task drafts, confirmed readiness scores, published briefs, team proposals, manual decisions, and one verified milestone per accepted proposal. PostgreSQL stores application state. AI clarification, chat, and transcription are available through OpenAI or Groq.
 
-## Start locally
+The server uses Go 1.23+, `net/http`, `database/sql`, `lib/pq`, and `godotenv`, without an ORM. The Vue frontend connects through the Vite development proxy.
 
-Run these commands from `backend` with Docker Desktop running:
+## Local startup
 
-```powershell
-docker compose up -d postgres pgadmin
-if (!(Test-Path .env)) { Copy-Item .env.example .env }
+Start Docker first. From `backend`, using Bash or Zsh:
+
+```bash
+docker compose up -d --wait postgres
+[ -f .env ] || cp .env.example .env
+go mod download
 go run ./cmd/seed
 go run ./cmd/api
 ```
 
-The API listens on `http://127.0.0.1:8080`. Existing environment variables override
-`.env`; commands automatically load `.env` from the current working directory.
-Set a different `PORT` if 8080 is already occupied. Startup applies ordered,
-transactional embedded migrations. Existing migration files are not rewritten.
+PowerShell equivalent:
 
 ```powershell
-Invoke-RestMethod http://127.0.0.1:8080/api/health
+docker compose up -d --wait postgres
+if (!(Test-Path .env)) { Copy-Item .env.example .env }
+go mod download
+go run ./cmd/seed
+go run ./cmd/api
 ```
 
-Expected in fallback mode:
+The API listens on `http://127.0.0.1:8080`. Check `/api/health` in a browser or run:
 
-```json
-{"data":{"status":"ok","database":"connected","aiMode":"fallback"}}
+```bash
+curl http://127.0.0.1:8080/api/health
 ```
 
-PostgreSQL: host `localhost`, port `5433`, database `gamified_tasks`, username
-`hackathon`, password `hackathon`. These are local demo credentials only.
-pgAdmin: `http://localhost:5050`, login `admin@example.com` / `admin`.
-Register its database connection using host **postgres**, port **5432**, and the
-same database/user/password. The API connects through host port 5433 instead.
+Commands load `.env` from the current directory. Existing environment variables take precedence. Change `PORT` if needed and restart the API after configuration changes.
 
-## OpenAI secret and model
+Startup applies embedded, ordered SQL migrations transactionally. The seed command adds missing sample records and preserves existing edits.
 
-Do not paste your API key into chat, Postman, frontend code, commands or commits.
-Use the masked local prompt:
+## PostgreSQL and optional administration UI
 
-```powershell
-.\scripts\set-openai.ps1 -Model gpt-4.1-mini
+The supplied Compose service exposes PostgreSQL on `127.0.0.1:5433`. Keep `DATABASE_URL` from [.env.example](.env.example) when using this setup. Local database credentials and the database name are defined in [docker-compose.yml](docker-compose.yml).
+
+To also start pgAdmin:
+
+```bash
+docker compose up -d pgadmin
+```
+
+Open `http://localhost:5050` and use the local pgAdmin credentials in the Compose file. Register PostgreSQL with host `postgres` and port `5432` inside the Compose network, using the database credentials from the same file. The Go process running on the host instead uses port `5433`.
+
+## AI configuration
+
+Edit `.env` locally and select one provider. Do not commit credentials or send them to the frontend or Postman.
+
+### OpenAI
+
+```dotenv
+AI_PROVIDER=openai
+OPENAI_API_KEY=replace_with_your_key
+OPENAI_MODEL=gpt-4.1-mini
+OPENAI_TRANSCRIBE_MODEL=gpt-4o-mini-transcribe
+AI_MODE=live
+```
+
+### Groq
+
+```dotenv
+AI_PROVIDER=groq
+GROQ_API_KEY=replace_with_your_key
+AI_MODEL=openai/gpt-oss-20b
+AI_TRANSCRIBE_MODEL=whisper-large-v3-turbo
+AI_MODE=live
+```
+
+`AI_PROVIDER` defaults to `openai`. The listed models are configurable defaults in `internal/config/config.go`. Access depends on the provider account and quota. Groq's base URL can be overridden with `AI_BASE_URL`.
+
+To use manual task workflows without a provider key, set `AI_MODE=fallback`. The public clarification endpoint reports AI unavailability rather than returning prepared questions as model output.
+
+Check live provider access from `backend`:
+
+```bash
 go run ./cmd/check-ai
 ```
 
-The script preserves other `.env` entries and sets `OPENAI_API_KEY`, `OPENAI_MODEL`
-and `AI_MODE=live`. `.env` is Git-ignored but remains plaintext on your machine:
-do not share the file. Model access depends on the hackathon project's key.
-Use the exact model ID granted by the organizers if different.
-`check-ai` makes one small billable analysis request, with at most one transient
-retry, and prints only model, mode, question count and duration. It exits nonzero
-if the request falls back. Restart the API after changing its configuration.
+The command sends a small real analysis request and exits unsuccessfully if live generation fails. It may consume provider quota. Its initial setup message mentions OpenAI, but configuration also accepts Groq through the variables above.
 
-The adapter uses [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
-with `store=false`, bounded responses, source validation and a 15-second total
-timeout. [GPT-4.1 mini](https://developers.openai.com/api/docs/models/gpt-4.1-mini)
-supports the required structured-output workflow; this does not guarantee access
-for your specific key. Set `AI_MODE=fallback` to work without API calls.
-The internal offline analyzer can return `mode=fallback` for diagnostic tests;
-the HTTP endpoint returns 503 instead of exposing prepared questions as AI output.
-The prompt is in `internal/ai/prompt.txt`; malformed-output examples and parser
-checks are in `internal/ai/ai_test.go`.
+The optional `scripts/set-openai.ps1` helper provides masked key entry on Windows for OpenAI configuration. `.env` is ignored by Git but remains a plaintext local file.
 
-`POST /api/ai/chat` uses Responses API with server instructions and `store=false`.
-It loads only a public task snapshot or the selected business actor's own draft.
-`POST /api/ai/transcribe` accepts up to 15 MiB of WebM/MP4/Ogg/WAV audio,
-checks the container signature and calls Audio Transcriptions with
-`OPENAI_TRANSCRIBE_MODEL` (default `gpt-4o-mini-transcribe`). Audio is not retained.
-Provider failures return bounded errors without exposing provider response bodies.
+## AI operations
 
-## Frontend contract and demo
+- **Analysis:** generates clarification questions and proposed fields with bounded output, source checks, retry handling, and a total analysis timeout. OpenAI requests use structured output and `store=false`.
+- **Chat:** `POST /api/ai/chat` loads an accessible public snapshot or the selected business actor's own draft and sends contextual messages to the configured provider.
+- **Transcription:** `POST /api/ai/transcribe` accepts WebM, MP4, Ogg, or WAV audio up to 15 MiB, validates the container signature, and returns editable text. The application does not retain the audio.
 
-- [Page-by-page routes and payloads](docs/api-request-list.md)
-- [Postman v3 folder collection](docs/postman/README.md)
-- [Teammate integration notes](docs/block2.md)
-- [Product specification](../docs/SPEC.md)
+Provider failures are returned as bounded application errors without exposing provider response bodies. The internal fallback analyzer supports diagnostics; it is not presented to users as live AI.
 
-Select a demo actor using `X-Demo-Actor: business:UUID` or `team:UUID`.
-Seed business: `10000000-0000-4000-8000-000000000001`.
-Seed teams: `00000000-0000-4000-8000-000000000001` through `...000005`.
-`GET /api/teams` returns the IDs and profiles. IDs in the original JSON fixtures
-map deterministically to UUIDs; seed tasks start `20000000`, drafts `30000000`,
-proposals `40000000`. Existing seed records and subsequent edits are preserved.
-The five team profiles from the original migration are also preserved.
+## API contracts and profiles
 
-Demo: create a draft, request questions, save answers/card, confirm four 10-point
-fields, publish at 40, submit/accept a proposal, submit/confirm its milestone for
-10 points, then fill and confirm all fields except feedbackFormat to reach 95.
-The Postman folders follow that flow. Rejection uses a separate proposal.
+- [Frontend routes and payloads](docs/api-request-list.md)
+- [Frontend integration contract](../frontend/API-CONTRACT.md)
+- [Chat and voice contract](../frontend/AI-CONTRACT.md)
+- [Postman walkthrough](docs/postman/README.md)
+
+Select a prepared profile with `X-Demo-Actor: business:UUID` or `team:UUID`. `GET /api/teams` returns team profiles and IDs. The seeded business ID is `10000000-0000-4000-8000-000000000001`.
+
+Task IDs, draft IDs, proposal IDs, and revisions returned by the API should be used for subsequent requests. Seed data maps its fixture identifiers to stable UUIDs.
+
+A typical flow is: create a draft, request clarification, save answers and fields, confirm information, publish, submit a proposal, accept it manually, submit a milestone, and confirm the result. Repeated confirmation does not award points twice.
 
 ## Verification
 
-```powershell
+From `backend`:
+
+```bash
 go test ./...
-$env:TEST_DATABASE_URL = 'postgres://hackathon:hackathon@localhost:5433/gamified_tasks?sslmode=disable'
-go test ./... -count=1 -v -timeout=60s
 go vet ./...
 go build ./...
 ```
 
-Integration tests create and drop only randomly named test schemas. They never
-reset application data. Without `TEST_DATABASE_URL`, they explicitly skip.
-The DB user needs CREATE SCHEMA permission. Tests cover the 40-to-95 flow, seed
-idempotence, filters, revision conflicts, private/public snapshots, multiple
-accepted teams, milestone authorization, concurrent one-time awards, transaction
-rollback, DB reopening, source checks, invalid AI output, retries and timeout.
-Provider tests use a local HTTP fake; a real key is checked separately by `check-ai`.
+For PostgreSQL integration checks, set `TEST_DATABASE_URL` to a local PostgreSQL connection string. The supplied connection is documented in `.env.example`.
 
-Recorded results and limitations: [verification report](docs/verification.md).
+Bash or Zsh:
 
-## Deliberate limits
+```bash
+TEST_DATABASE_URL='<local_postgresql_connection_string>' go test ./... -count=1 -v -timeout=90s
+```
 
-- Demo actors are not authentication. The API binds to loopback; do not expose it
-  publicly. `DEMO_MODE=false` disables application routes until real auth exists.
-- In development, proxy `/api` from Vite to `http://127.0.0.1:8080`; no wildcard CORS.
-- No XP/streak dashboard, paid ranking, recommendations or automatic team selection.
-- Existing `/offers` and accept/reject aliases remain for compatibility. New clients
-  should use the documented `/proposals` routes and `{data:...}` envelopes.
-- Historical acceptance awards remain stored but do not contribute to progress
-  points. Only `progress_awards` from confirmed milestones count.
-- The seed command is additive and idempotent. There is no destructive public reset.
+PowerShell:
+
+```powershell
+$env:TEST_DATABASE_URL = '<local_postgresql_connection_string>'
+go test ./... -count=1 -v -timeout=90s
+```
+
+Database tests create and drop randomly named schemas and require permission to create schemas. They skip without `TEST_DATABASE_URL`. They do not reset application data.
+
+Coverage includes scoring and confirmation, public/private snapshots, seed idempotence, revision conflicts, team selection, milestone permissions, concurrent one-time awards, transaction rollback, persistence, AI source validation, malformed output, retries, and timeouts. Provider tests use a local HTTP fake; real provider access is checked separately.
+
+## Current limits
+
+- Prepared actors are not authentication. Keep the loopback-bound API local until production identity and authorization are implemented.
+- `DEMO_MODE=false` disables application routes; it does not activate another login system.
+- The development frontend proxies `/api` to Go. Production hosting needs separate routing; wildcard CORS is not enabled.
+- Team selection and information confirmation remain human decisions.
+- Only confirmed milestones contribute progress points. Older stored acceptance awards do not count toward progress.
+- Existing `/offers` aliases remain for compatibility; new clients should use `/proposals` and the documented `{data: ...}` envelopes.
+- There are no payments, file storage, automatic recommendations, or destructive public reset endpoints.

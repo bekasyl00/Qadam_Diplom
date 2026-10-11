@@ -1,145 +1,174 @@
-# Qadam — от бизнес-задачи к совместному результату
+# Qadam
 
-**Qadam помогает бизнесу сформулировать понятную задачу, а студенческим командам — найти проект и предложить решение.** AI уточняет описание, рейтинг показывает полноту подтверждённых сведений, а заказчик самостоятельно выбирает исполнителей.
+**Development of the Qadam Platform for Business Task Formulation Using Artificial Intelligence**
 
-Проект создан для хакатонного кейса AI Sana. AI Sana — постановщик кейса, Qadam — название решения.
+Qadam helps businesses turn an informal request into a structured task that a student team can understand and work on. AI asks clarifying questions and suggests task details; the business reviews the information, publishes the task, and chooses a team.
 
-## Проблема и аудитория
+## Problem and users
 
-Бизнесу бывает трудно превратить потребность в задание: не хватает описания данных, ожидаемого результата и критериев приёмки. Студенческая команда получает неопределённую задачу и не понимает, с чего начать.
+A business request often lacks a clear outcome, available data, constraints, or acceptance criteria. Teams need these details before they can propose a realistic solution. Qadam brings task formulation and the first collaboration steps into one application.
 
-- **Бизнес** описывает потребность, уточняет детали и проверяет результат работы.
-- **Студенческая команда** выбирает задачу, предлагает план и передаёт результат первого этапа.
+- **Business representatives** describe a need, confirm the task details, review proposals, and approve a submitted result.
+- **Student teams** explore published tasks, propose an approach, and submit a milestone result.
+- **Visitors** browse the public catalog without selecting a profile.
 
-## Что реализовано
+## Features
 
-- Открытый каталог с поиском, фильтрами по направлению и готовности, сортировкой.
-- Переключение между бизнесом и пятью подготовленными студенческими командами.
-- Конструктор: описание → AI-вопросы → редактируемая карточка из 16 полей.
-- Динамические вопросы через OpenAI и предложения полей на основании ответов.
-- Голосовой ввод описания и ответов: запись → расшифровка → редактирование текста.
-- Чат Qadam AI с контекстом страницы и доступной пользователю задачи.
-- Прогноз готовности и отдельный подтверждённый рейтинг от 0 до 100.
-- Приватные черновики, сохранение в PostgreSQL, подтверждение и публикация.
-- Предложения команд: идея, план, срок и ссылка на прототип.
-- Ручное принятие или отклонение предложений; можно выбрать несколько команд.
-- Передача результата этапа и однократное начисление **10 баллов команде** после подтверждения бизнесом.
-- Проверки прав выбранной демо-роли, конфликтов версий и источников AI-предложений.
+- Public task catalog with search, category and readiness filters, and sorting.
+- Task builder with an initial description, AI clarification, and an editable brief with 16 fields.
+- AI-generated questions and field suggestions through OpenAI or Groq.
+- Voice recording and transcription for descriptions and answers.
+- Qadam AI chat with the current page and accessible task context.
+- Separate draft completeness preview and confirmed readiness score from 0 to 100.
+- Private drafts, confirmed public snapshots, and PostgreSQL persistence.
+- Team proposals with an idea, plan, timeframe, and prototype link.
+- Manual acceptance or rejection of proposals, including selection of multiple teams.
+- Milestone submission and a one-time award of 10 team points after business confirmation.
+- Validation of actor permissions, revision conflicts, and sources for AI suggestions.
 
-Рейтинг задачи отражает полноту подтверждённого описания, а не качество идеи. Низкий рейтинг не запрещает публикацию или отклик. Баллы команды начисляются за подтверждённый результат, а не за отправку предложения.
+The readiness score measures the completeness of confirmed information, not the quality of the idea. A low score does not block publication or proposals. Team points are awarded for a confirmed result, not for submitting a proposal.
 
-## Как работает решение
+## User workflow
 
-1. Заказчик выбирает роль бизнеса и вводит описание текстом или голосом.
-2. AI задаёт 3–5 вопросов по конкретному описанию.
-3. Ответы превращаются в предложения для карточки. Значения проверяются на наличие в исходном тексте; неподтверждённые предложения отбрасываются.
-4. Заказчик редактирует карточку, подтверждает сведения и публикует задачу. Go рассчитывает рейтинг подтверждённого снимка.
-5. Команда находит задачу и отправляет своё предложение.
-6. Бизнес вручную выбирает команду. Команда передаёт результат этапа со ссылкой, бизнес подтверждает его — начисляются баллы.
+1. Select the business profile and describe a task using text or voice.
+2. Request AI clarification and answer the generated questions.
+3. Review the proposed brief, edit its fields, and confirm the information.
+4. Publish the task. The backend calculates the confirmed readiness score.
+5. Switch to a student team, find the task, and submit a proposal.
+6. As the business, review proposals and choose a team manually.
+7. The selected team submits a milestone result; the business confirms it and the team receives points.
 
-Сохранение рабочих правок само по себе не заменяет публичную карточку: для изменения подтверждённых сведений нужно повторное подтверждение бизнеса.
+Saving draft edits does not automatically replace the confirmed public snapshot. Updated information must be confirmed again.
 
-## Технологии
+## Technology
 
-| Компонент | Реализация |
+| Component | Implementation |
 | --- | --- |
 | Frontend | Vue 3, Composition API, TypeScript, Vite, Pinia, Vue Router |
-| Интерфейс | Собственный CSS, Lucide, локальный шрифт Manrope |
-| Запись голоса | Browser MediaRecorder API |
+| Interface | Custom CSS, Lucide icons, locally bundled Manrope font |
+| Audio capture | Browser MediaRecorder API |
 | Backend | Go 1.23+, `net/http`, `database/sql` |
-| База данных | PostgreSQL, драйвер `lib/pq`, встроенные SQL-миграции |
-| Конфигурация | `.env`, `godotenv` |
-| AI-вопросы и чат | OpenAI Responses API, `gpt-4.1-mini` по умолчанию |
-| Расшифровка | OpenAI Audio Transcriptions API, `gpt-4o-mini-transcribe` по умолчанию; модель настраивается |
-| Локальная инфраструктура | Docker Compose; pgAdmin как дополнительный сервис |
-| Проверки | Vitest, vue-tsc, Prettier, Go tests, PostgreSQL integration tests |
+| Database | PostgreSQL 16, `lib/pq`, embedded SQL migrations |
+| Configuration | Environment variables and `godotenv` |
+| AI questions and chat | OpenAI Responses API or Groq's OpenAI-compatible API |
+| Default text models | OpenAI `gpt-4.1-mini`; Groq `openai/gpt-oss-20b` |
+| Default transcription models | OpenAI `gpt-4o-mini-transcribe`; Groq `whisper-large-v3-turbo` |
+| Local infrastructure | Docker Compose, optional pgAdmin |
+| Verification tools | Vitest, vue-tsc, Prettier, Go tests and PostgreSQL integration tests |
 
-API-ключ OpenAI находится только на backend.
+Models are configurable. Live AI requires network access and a provider account with access to the selected models and sufficient quota. Provider credentials stay on the backend.
 
-## Архитектура
+## Architecture
 
 ```text
-Браузер: Vue + Pinia
-        │ REST /api, выбранная демо-роль
-        ▼
-Vite proxy → Go API
-                ├── PostgreSQL: задачи, снимки, команды, предложения, этапы, баллы
-                ├── OpenAI Responses: вопросы, карточка, чат
-                └── OpenAI Audio Transcriptions: голос → текст
+Browser: Vue + Pinia
+        |
+        | REST /api + selected demonstration profile
+        v
+Vite development proxy --> Go API
+                              |-- PostgreSQL: drafts, snapshots, proposals, milestones, points
+                              |-- OpenAI / Groq: clarification, brief suggestions, chat
+                              `-- Transcription API: audio to editable text
 ```
 
-- `frontend/src/pages/` — каталог, конструктор, задачи и рабочие пространства.
-- `frontend/src/components/` — формы, рейтинг, чат и запись голоса.
-- `frontend/src/services/` — REST-адаптер, преобразование DTO Go и отдельное браузерное демо.
-- `backend/internal/tasks/`, `rating/`, `offers/`, `teams/` — бизнес-логика и хранение.
-- `backend/internal/ai/` — AI-запросы, проверка результатов, чат и транскрибация.
-- `backend/internal/database/migrations/` — миграции PostgreSQL.
-- `backend/cmd/api/`, `seed/`, `check-ai/` — сервер, загрузка демо-данных и проверка AI.
-- `docs/` — спецификация, данные, сценарии и отчёт интеграции.
+```text
+frontend/
+  src/pages/                  Catalog, task builder and workspaces
+  src/components/             Forms, scoring, assistant and audio controls
+  src/services/               REST adapter and browser-only data adapter
+  src/stores/                 Shared application state
+backend/
+  cmd/api/                    API server
+  cmd/seed/                   Additive sample-data loader
+  cmd/check-ai/               Live AI configuration check
+  internal/ai/                Provider requests and output validation
+  internal/tasks/             Task and draft workflows
+  internal/offers/            Proposals and milestone workflows
+  internal/rating/            Confirmed readiness calculation
+  internal/teams/             Team profiles and progress
+  internal/database/          PostgreSQL connection and migrations
+docs/                         Specifications, fixtures and technical records
+```
 
-По умолчанию frontend работает с реальным Go API. Локальные обозначения ролей преобразуются в `X-Demo-Actor: business:UUID` / `team:UUID`. Гость получает только опубликованные снимки. Ошибка API не переключает приложение на вымышленные данные.
+The frontend uses the Go API by default. An explicit browser-only mode stores sample data in localStorage. API failures do not silently switch the application to local data.
 
-## Установка и запуск
+## Installation and startup
 
-### Требования
+### Prerequisites
 
-- Go 1.23 или новее.
-- Node.js 22.12+ и npm.
-- Docker Desktop либо Docker Engine с Compose; Docker должен быть запущен.
-- Для AI — действующий OpenAI API-ключ с доступом к указанным моделям и квотой.
+- Go 1.23 or newer.
+- Node.js 22.12+ and npm.
+- Docker with Compose; start Docker Desktop first on macOS or Windows.
+- An OpenAI or Groq API key for live AI features.
 
-Команды ниже предназначены для Bash/Zsh. В PowerShell вместо `cp -n` используйте `if (!(Test-Path .env)) { Copy-Item .env.example .env }`.
+The commands below use Bash or Zsh. Windows users can use the PowerShell instructions in the [backend guide](backend/README.md).
 
-### 1. Получить проект
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/BAITC-Hacks/hack-1357219b-vibe-moggers.git
-cd hack-1357219b-vibe-moggers
+git clone https://github.com/bekasyl00/Qadam_Diplom.git
+cd Qadam_Diplom
 ```
 
-### 2. Запустить базу и настроить backend
+### 2. Start PostgreSQL and configure the backend
 
 ```bash
 cd backend
 docker compose up -d --wait postgres
-cp -n .env.example .env
+[ -f .env ] || cp .env.example .env
 go mod download
 ```
 
-В редакторе откройте `backend/.env`. Для настоящего AI задайте:
+Open `backend/.env` in an editor. Keep the database connection from `.env.example` for the supplied Compose setup. The API uses port `8080`; PostgreSQL is exposed locally on port `5433`.
+
+For **Groq**, add or update:
 
 ```dotenv
-OPENAI_API_KEY=ваш_ключ
+AI_PROVIDER=groq
+GROQ_API_KEY=replace_with_your_key
+AI_MODEL=openai/gpt-oss-20b
+AI_TRANSCRIBE_MODEL=whisper-large-v3-turbo
+AI_MODE=live
+DEMO_MODE=true
+```
+
+Alternatively, for **OpenAI**:
+
+```dotenv
+AI_PROVIDER=openai
+OPENAI_API_KEY=replace_with_your_key
 OPENAI_MODEL=gpt-4.1-mini
 OPENAI_TRANSCRIBE_MODEL=gpt-4o-mini-transcribe
 AI_MODE=live
 DEMO_MODE=true
 ```
 
-Остальные значения из `.env.example` подходят для локального запуска: API на порту `8080`, PostgreSQL на `5433`. `.env` исключён из Git. Не помещайте ключ в переменные `VITE_*`: они попадают в браузер.
+Choose one provider. `.env` is excluded from Git. Never put provider keys in frontend files or `VITE_*` variables, which are exposed to the browser.
 
-Без ключа оставьте `AI_MODE=fallback`: каталог, ручное заполнение, публикация и работа команд доступны. AI-возможности вернут понятную ошибку; шаблонные вопросы не выдаются за генерацию модели.
+To run without an AI key, leave `AI_MODE=fallback`. Manual task editing, publication, proposals, and milestones remain available. AI endpoints report unavailability instead of presenting prepared questions as generated output.
 
-### 3. Загрузить демо-данные и запустить API
+### 3. Seed data and start the API
 
-Из каталога `backend`:
+From `backend`:
 
 ```bash
 go run ./cmd/seed
 go run ./cmd/api
 ```
 
-Миграции применяются автоматически. Seed добавляет недостающие записи и сохраняет существующие изменения. Проверка сервера: [http://127.0.0.1:8080/api/health](http://127.0.0.1:8080/api/health).
+Migrations run automatically. Seeding adds missing sample records and preserves existing edits.
 
-После изменения `.env` перезапустите Go API. Отдельная проверка ключа и генерации, также из `backend`:
+Check [http://127.0.0.1:8080/api/health](http://127.0.0.1:8080/api/health). To check live AI separately, run the following from another terminal in `backend`:
 
 ```bash
 go run ./cmd/check-ai
 ```
 
-### 4. Запустить frontend
+This sends a real provider request and may consume quota. Restart the API after changing `.env`. Existing shell environment variables take precedence over `.env` values.
 
-Во втором терминале, из корня проекта:
+### 4. Start the frontend
+
+From the repository root in a second terminal:
 
 ```bash
 cd frontend
@@ -147,75 +176,90 @@ npm ci
 npm run dev
 ```
 
-Откройте **[http://127.0.0.1:5173](http://127.0.0.1:5173)**. Vite проксирует `/api` на `127.0.0.1:8080`. Для другого адреса Go настройте `API_PROXY_TARGET` по `frontend/.env.example` и перезапустите Vite.
+Open **[http://127.0.0.1:5173](http://127.0.0.1:5173)**. Vite forwards `/api` to the backend on port `8080`.
 
-Для отдельного демо без PostgreSQL установите `VITE_DATA_MODE=demo` в `frontend/.env`: данные будут храниться в localStorage. AI-возможности даже в этом режиме требуют работающего Go API.
+For a different backend address, create `frontend/.env.local` using `.env.example`, update `API_PROXY_TARGET`, and restart Vite. For browser-only sample data, explicitly set `VITE_DATA_MODE=demo`; AI still requires the Go API and a configured provider.
 
-## Как проверить решение жюри
+## Example walkthrough
 
-1. Откройте каталог без роли: изучите подготовленные задачи, поиск и фильтры.
-2. Выберите **«Бизнес Qadam»** → **«Разместить задачу»**. Название: «Планирование закупок магазина». Введите описание:
+The current interface uses Russian labels. Follow the corresponding controls for each action below.
 
-   > Магазину нужен список закупок. Продажи и остатки хранятся в CSV. Управляющий тратит час на расчёт вручную. Нужен веб-прототип за 14 дней, который готовит список за 10 минут.
+1. Browse the catalog as a visitor and try the search and filters.
+2. Select the business profile and create a task such as **Store purchase planning**.
+3. Enter: “Our store keeps sales and stock levels in CSV files. The manager spends one hour preparing a purchase list. We need a web prototype in 14 days that prepares the list in 10 minutes.”
+4. Request AI questions, answer them, and review the suggested brief. Use manual editing if AI is unavailable.
+5. Optionally record a short description, check the transcription, and edit the text before continuing.
+6. Confirm the information and publish the task. Inspect its confirmed score and catalog entry.
+7. Switch to a student team and submit a proposal. The included `/demo/prototype.html` page can serve as an explicitly synthetic example link.
+8. Switch back to the business profile and accept the proposal.
+9. Submit a milestone as the team, then confirm it as the business. Check that the team receives 10 points and that the result survives a page reload.
+10. Open Qadam AI and ask which information the team needs to start this task.
 
-3. Нажмите **«Получить AI-вопросы»**, ответьте и перейдите к карточке. Проверьте предложенные поля. Если AI недоступен, выберите ручное заполнение.
-4. Для проверки голоса запишите короткую русскую фразу и убедитесь, что расшифровка появляется в редактируемом поле. Браузер запросит разрешение микрофона.
-5. Сохраните черновик, подтвердите проверенные сведения и опубликуйте задачу. Сравните прогноз с подтверждённым рейтингом.
-6. Выберите студенческую команду в шапке, откройте задачу и отправьте идею, план, срок и ссылку на прототип. Для локальной проверки можно использовать `http://127.0.0.1:5173/demo/prototype.html` — это явно обозначенный демонстрационный макет.
-7. Вернитесь в роль бизнеса → **«Мои задачи»** → **«Отклики»** → выберите команду.
-8. От роли команды передайте результат этапа со ссылкой. От роли бизнеса подтвердите результат. Проверьте появление 10 баллов и сохранение состояния после перезагрузки.
-9. Откройте эмблему **Qadam AI**, нажмите **«Задать вопрос»** и спросите: «Какие данные нужны команде для этой задачи?».
+## Checks
 
-### Автоматические проверки
-
-Из `frontend`:
+Frontend, from `frontend`:
 
 ```bash
 npm test
+npm run typecheck
 npm run build
 npm run format:check
 ```
 
-Из `backend`, при запущенной PostgreSQL:
+Backend, from `backend`:
 
 ```bash
 go test ./...
-TEST_DATABASE_URL='postgres://hackathon:hackathon@localhost:5433/gamified_tasks?sslmode=disable' go test ./... -count=1 -timeout=90s
 go vet ./...
 go build ./...
 ```
 
-В PowerShell переменную задают отдельно: `$env:TEST_DATABASE_URL = 'postgres://hackathon:hackathon@localhost:5433/gamified_tasks?sslmode=disable'`, затем выполняют `go test ./... -count=1 -timeout=90s`.
+Database integration tests require `TEST_DATABASE_URL` pointing to a local test database. Use the connection settings from `backend/.env.example` when running against the supplied local PostgreSQL service:
 
-Без `TEST_DATABASE_URL` интеграционные проверки БД пропускаются. С ним тесты используют отдельные временные схемы и не сбрасывают данные приложения. Результаты и границы проверок: [docs/INTEGRATION.md](docs/INTEGRATION.md).
+```bash
+TEST_DATABASE_URL='<local_postgresql_connection_string>' go test ./... -count=1 -timeout=90s
+```
 
-## Данные и интеграции
+These tests create temporary schemas rather than resetting application data. Without the variable, database integration tests skip. Provider unit tests use local HTTP fakes; `check-ai` tests real provider access separately.
 
-- `docs/fixtures/seed.json` — синтетические примеры: пять черновиков, пять опубликованных карточек, пять команд и пять предложений. Backend seed и миграции подготавливают локальные данные.
-- PostgreSQL хранит созданные задачи и результаты действий между перезапусками.
-- OpenAI получает описание и ответы для уточнения задачи, доступный контекст для чата и аудиофайл для расшифровки. Текстовые запросы используют `store=false`; приложение не сохраняет исходные аудиозаписи.
-- CSV упоминается в демонстрационном кейсе как материал заказчика. Импорт и обработка бизнес-CSV не реализованы в самой платформе.
-- Интеграций с кассами, CRM, оплатой и реальными клиентскими базами нет.
+## Data and integrations
 
-## Ограничения текущей версии
+- `docs/fixtures/seed.json` contains synthetic drafts, published briefs, teams, and proposals.
+- PostgreSQL stores application state across restarts.
+- OpenAI or Groq receives the submitted task text, answers, accessible chat context, or audio needed for the requested AI operation.
+- OpenAI Responses requests use `store=false`. The application does not retain the original uploaded audio; provider-side retention is governed by the provider's own settings and terms.
+- CSV is an example of business input described in a task. The platform does not implement business CSV processing, CRM connections, or payment integrations.
 
-- Это хакатонный MVP: нет регистрации, паролей, JWT и производственной аутентификации. `X-Demo-Actor` — переключатель для демонстрации, а не подтверждение личности. API слушает `127.0.0.1`.
-- AI не выбирает команды, не подтверждает факты и не начисляет баллы. Результаты генерации проверяет пользователь.
-- Голос работает по схеме «записать → отправить → получить текст», без непрерывного голосового диалога и озвучки ответов. Запись в браузере ограничена 60 секундами, загрузка на сервер — 15 MiB.
-- Русская тестовая запись проверена; точность распознавания зависит от речи и условий записи. Полноценная проверка казахского языка не завершена.
-- Для микрофона нужны разрешение браузера и localhost либо HTTPS.
-- Доступность и скорость AI зависят от сети, квоты и доступа к моделям. Можно продолжить работу с карточкой вручную.
-- Реализован один подтверждаемый этап на предложение; нет платежей, файлового хранилища и полноценного управления проектом.
-- Демонстрационные данные и макет прототипа не являются измеренными результатами работы реального бизнеса.
+## Current limitations
 
-## Развёрнутая версия
+- The current prototype uses selectable demonstration profiles. It does not implement production authentication, registration, password recovery, or JWT sessions. `X-Demo-Actor` is not proof of identity.
+- The API binds to loopback for local use. Setting `DEMO_MODE=false` disables application routes; it does not enable an alternative authentication system.
+- AI suggestions require human review. AI does not confirm business facts, select teams, or award points.
+- Voice input is record-and-transcribe, not a continuous voice conversation. Browser recordings are limited to 60 seconds and server uploads to 15 MiB. Microphone access requires permission and localhost or HTTPS.
+- Each accepted proposal supports one confirmable milestone. Payments, file storage, and a complete project-management lifecycle are not implemented.
+- AI availability and latency depend on connectivity, model access, and quota.
+- The proposed diploma evaluation has not yet established improvements in brief quality or completion time.
 
-Подтверждённой ссылки на публично развёрнутую версию в репозитории нет. Для проверки используйте локальный запуск выше. Production-сборка frontend создаётся командой `npm run build`; её размещение требует отдельно настроенного API и маршрутизации SPA.
+## Diploma project
 
-## Документация
+The project studies how AI can assist the transformation of informal business needs into structured, human-confirmed tasks. The planned evaluation compares AI-assisted task formulation with manual completion of the same brief.
 
-- [Контракт frontend и Go](frontend/API-CONTRACT.md)
-- [Контракт AI, чата и голоса](frontend/AI-CONTRACT.md)
-- [Backend и Postman](backend/README.md)
-- [Отчёт интеграции](docs/INTEGRATION.md)
-- [Спецификация проекта](docs/SPEC.md)
+**Team members**
+
+- Bekasyl Zhaksylyk
+- Mereke Myrzakhan
+- Amantai Zere
+
+**Supervisor:** Altynbek Seitenov
+
+## Deployment
+
+No verified public deployment URL is recorded in the repository. Use the local setup above. `npm run build` generates the frontend production bundle; hosting it requires a separately configured API, `/api` routing, and SPA fallback routing.
+
+## Documentation
+
+- [Frontend setup and workflows](frontend/README.md)
+- [Backend setup and configuration](backend/README.md)
+- [Postman collection guide](backend/docs/postman/README.md)
+- [Frontend API contract](frontend/API-CONTRACT.md)
+- [AI, chat, and voice contract](frontend/AI-CONTRACT.md)

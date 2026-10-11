@@ -1,38 +1,39 @@
-# Postman Collection
+# Qadam API Collection
 
-This repository keeps the existing Postman v3 folder/YAML format. Open
-`backend/docs` in Postman's Local View; `.postman/resources.yaml` registers
-`postman/collections/Hackathon API`. These are not JSON import files.
+This directory contains a Postman v3 folder-based collection for the Qadam API. Open `backend/docs` in Postman's Local View. The workspace configuration in `.postman/resources.yaml` registers the collection under [collections](collections/). These YAML files are not JSON import files.
 
-Start PostgreSQL, run `go run ./cmd/seed`, and start `go run ./cmd/api` from backend.
-The `base_url` collection variable defaults to `http://127.0.0.1:8080`.
-No OpenAI key belongs in Postman; it is read only by the Go process.
+## Prerequisites
 
-Run folders in order:
+Start PostgreSQL, run `go run ./cmd/seed`, and start `go run ./cmd/api` from `backend`. See the [backend setup guide](../../README.md).
 
-1. Health.
-2. Business tasks and team profiles; capture the demo team UUIDs.
-3. Builder: create, ask, save, assemble, edit, confirm and publish a 40-point card.
-4. Catalog/details and a team proposal.
-5. Review: accept the first proposal, create and reject a separate second proposal.
-6. Progress: submit a result, confirm it and inspect the team's 10 points.
-7. Improve the card to 95, reconfirm and inspect its catalog position.
+The collection's `base_url` defaults to `http://127.0.0.1:8080`. Provider keys belong only in the Go server environment, never in Postman. Live clarification requires a configured AI provider.
 
-Response scripts save task/proposal/milestone IDs and revisions automatically.
-Requests use deterministic manual card fields so both fallback and live AI runs
-can complete. In a real UI, map and review returned AI suggestions before saving.
-Final proposal decisions cannot be reversed. Repeated milestone confirmation
-does not award additional points. Repeating the entire collection creates another
-task and another milestone award; compare the per-milestone points, not a global
-team total of exactly 10 after multiple runs.
+## Request sequence
 
-See [the page-by-page contract](../api-request-list.md) for payloads and errors.
+Run the folders in order:
 
-## Optional collection smoke test
+1. Check API health.
+2. Inspect business tasks and team profiles; capture the prepared team IDs.
+3. Create a draft, request clarification, save answers, assemble and edit the brief, confirm information, and publish a 40-point card.
+4. Read the catalog and task details, then submit a team proposal.
+5. Accept the first proposal; create and reject a separate second proposal.
+6. Submit a milestone result, confirm it as the business, and inspect the team's point award.
+7. Complete additional brief fields, reconfirm the card, and inspect its updated score and catalog position.
 
-With Node.js and Python + PyYAML installed, `node scripts/check-postman.cjs` from
-backend sends these YAML requests to the running local API and executes the
-assertion subset used in their response scripts. It does not automate Postman.
-This creates a demonstration task/proposals/milestone, so run it only locally.
-Set `BASE_URL` to use a different local port; remote hosts are rejected.
-The app itself does not depend on Node or Python.
+Response scripts store task, proposal, and milestone IDs and revisions for later requests. Manual field values make the task workflow reproducible without relying on generated content; AI-specific requests still require live provider access. In the application, users must review suggestions before saving or confirming them.
+
+Proposal decisions are final in the current workflow. Repeated milestone confirmation does not award points again. Repeating the full collection creates additional sample tasks and milestones, so compare each milestone's award rather than expecting the team's total to remain exactly 10.
+
+See the [request reference](../api-request-list.md) for payloads and errors.
+
+## Optional collection check
+
+With Node.js and Python with PyYAML installed, run from `backend`:
+
+```bash
+node scripts/check-postman.cjs
+```
+
+The script sends the YAML requests to the running local API and executes the assertion subset used by the response scripts. It does not automate the Postman interface. It creates sample tasks, proposals, and a milestone, so use a local development instance.
+
+Set `BASE_URL` to use another local port. Remote hosts are rejected by the script. Node.js and Python are needed for this optional check, not for the Go API itself.

@@ -1,79 +1,23 @@
-# Qadam frontend
+# Qadam Frontend
 
-Vue 3 Composition API + TypeScript + Vite + Pinia + Vue Router.
-Собственные CSS-компоненты, иконки Lucide, локально поставляемый шрифт Manrope с кириллицей.
-Отдельные сервисные адаптеры для демонстрации и REST API.
+The Qadam web interface supports business task formulation, AI clarification, published briefs, team proposals, and milestone review.
 
-## Запуск
+Built with Vue 3 Composition API, TypeScript, Vite, Pinia, and Vue Router. The interface uses custom CSS, Lucide icons, and a locally bundled Manrope font.
 
-Из папки `frontend`:
+## Start locally
+
+Start PostgreSQL and the Go API using the [project setup guide](../README.md#installation-and-startup). Then run from `frontend`:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Адрес: http://127.0.0.1:5173. По умолчанию — реальный Go API на порту 8080.
-Сначала запустите PostgreSQL, seed и Go по корневому README. Для изолированного
-браузерного демо явно установите `VITE_DATA_MODE=demo` в `frontend/.env`.
-Node.js: 22.12+ / 24+ / 25+, проверено на 25.4.0. Системные версии должны
-соответствовать требованиям Vite, зафиксированного в package-lock.json.
+Use Node.js 22.12+ and npm. Open `http://127.0.0.1:5173`. The development server requires this port to be available rather than silently selecting another port.
 
-```bash
-npm test
-npm run typecheck
-npm run build
-npm run preview
-```
+## Backend connection
 
-`npm run preview` обслуживает production-сборку на http://127.0.0.1:4173.
-При занятом 5173 dev-сервер завершится с ошибкой, чтобы ссылка демо не менялась незаметно.
-Форматирование: `npm run format`, проверка: `npm run format:check`.
-
-## Что реализовано
-
-- Каталог: поиск, фильтры темы/готовности, сортировка по рейтингу или новизне, пустое состояние.
-- Конструктор: описание, уточняющие вопросы, редактируемые 16 полей в семи группах.
-- Прогноз готовности отдельно от подтверждённого рейтинга, ручное подтверждение,
-  публикация без минимального порога, изменение позиции при росте рейтинга.
-- Сохранённые черновики, защита перехода/закрытия вкладки при несохранённых изменениях.
-- Подтверждённый публичный снимок не меняется от сохранения черновых правок.
-- Просмотр задачи, предложения от любой команды, сравнение и ручное принятие/отклонение.
-- Можно выбрать несколько команд или отклонить все. Общего лимита предложений нет.
-- Передача результата первого этапа и подтверждение бизнесом: +10 баллов команде один раз.
-- Мои задачи / мои отклики, режимы бизнеса и пяти студенческих команд.
-- Валидация, сообщения ошибок, загрузка, focus-стили, reduced-motion, адаптивные экраны.
-- Настоящий локальный статический артефакт `/demo/prototype.html` для демонстрационных откликов.
-  Он явно подписан как макет с синтетическими числами.
-
-## Быстрое демо
-
-Каталог открыт гостям. В шапке и на `/start` есть демонстрационный переключатель:
-«Бизнес» и пять готовых студенческих команд. Регистрация, email и пароль не нужны.
-
-1. Выбрать «Бизнес Qadam» → «Разместить задачу» → записать описание голосом или заполнить пример → «Получить AI-вопросы».
-2. Ответить текстом или голосом → «Перейти к карточке» → «Заполнить на 40».
-3. Просмотреть поля → отметить подтверждение → «Подтвердить сведения» → «Опубликовать задачу».
-4. В каталоге задача четвёртая. Открыть → «Редактировать» → «Дополнить до 95» → подтвердить.
-5. Переключиться в шапке на студенческую команду → открыть задачу → отправить предложение.
-6. Переключиться обратно на бизнес → «Мои задачи» → «Отклики» → вручную выбрать/отклонить.
-7. Вернуться в профиль команды, передать результат этапа; бизнес подтверждает → команде +10.
-8. Открыть эмблему Qadam AI и задать вопрос о текущей странице или проекте.
-
-Кнопки заполнения примеров доступны только в режиме `demo`. Они не подтверждают и не
-публикуют сведения автоматически. Уточняющие вопросы всегда запрашиваются у live AI;
-при его недоступности пользователь явно переходит к ручному заполнению.
-
-Начальные данные: по 5 черновиков, карточек, команд и откликов в `../docs/fixtures/seed.json`.
-Карточки, команды и отклики загружаются в приложение; 5 исходных черновиков также
-сохраняются в файле набора для работы команды. В конструкторе доступен один основной пример.
-Рабочее состояние: localStorage `qadam:demo:v1`; выбранный профиль: `qadam:actor`.
-Для нового прогона используйте отдельный профиль/приватное окно браузера. Удаление
-указанных ключей сбросит только локальную демонстрацию вместе с её изменениями.
-
-## Подключение Go
-
-Создать `frontend/.env.local` по образцу `.env.example`:
+The default data mode is `api`. To override configuration, create `frontend/.env.local`:
 
 ```dotenv
 VITE_DATA_MODE=api
@@ -81,65 +25,85 @@ VITE_API_BASE_URL=/api
 API_PROXY_TARGET=http://127.0.0.1:8080
 ```
 
-Перезапустить dev-сервер. Vite проксирует `/api` на Go, поэтому для локальной разработки
-не нужен CORS. При прямом адресе Go в `VITE_API_BASE_URL` backend должен разрешить
-origin frontend и заголовки `Content-Type`, `X-Demo-Actor`.
+Restart Vite after changing environment variables. Its development proxy forwards `/api` to Go, keeping browser requests on the same origin. `API_PROXY_TARGET` only configures the development server; production hosting requires its own API routing.
 
-Значения `VITE_*` публичны и попадают в JavaScript. Секрет AI API должен быть только
-в окружении Go. Адрес OpenAI Platform не является адресом Go backend.
+Never put AI provider credentials in this directory or in `VITE_*` variables. Those values are included in client-side JavaScript. AI requests go through the Go backend.
 
-В режиме `api` нет незаметной подмены недоступного сервера демонстрационными данными.
-Ошибки видны. Если доступен backend, но упал AI, сохранённую задачу можно продолжить
-через ручное заполнение; шаблонные вопросы не выдаются за результат модели.
+The HTTP adapter reports backend errors. It does not silently replace unavailable API responses with local sample data. When AI is unavailable, users can continue editing task fields manually.
 
-Окончательные формы ответа, два дополнения к исходному контракту и правила данных —
-в [API-CONTRACT.md](API-CONTRACT.md). Реальное соединение с Go ещё не проверено.
+## Workflows
 
-При production-размещении Go/веб-сервер должен отдавать `index.html` для неизвестных
-frontend-маршрутов (`/tasks/:id`, `/business` и т. п.), а `/api/*` передавать API.
-`API_PROXY_TARGET` используется только Vite dev server, в production прокси нужно настроить отдельно.
+- **Catalog:** public browsing, search, category and readiness filters, sorting, and empty states.
+- **Task builder:** initial description, generated clarification questions, and 16 editable fields arranged in seven groups.
+- **Confirmation:** a draft score preview, explicit information confirmation, and a separately stored public snapshot.
+- **Publication:** no minimum readiness score; editing a draft does not automatically replace its confirmed snapshot.
+- **Proposals:** teams submit an idea, plan, timeframe, and prototype link; businesses accept or reject proposals manually.
+- **Milestones:** an accepted team submits a result; business confirmation awards 10 points once.
+- **Workspaces:** business tasks and team proposals, selected through demonstration profiles.
+- **Interaction support:** validation, visible loading and error states, unsaved-change prompts, keyboard focus styles, reduced motion, and responsive layouts.
 
-## Структура
+The current interface uses Russian text. Documentation is written in English.
+
+## AI assistant and voice input
+
+The task builder requests generated questions through `/api/ai/analyze`. Qadam AI opens an assistant panel and sends chat messages to `/api/ai/chat` with the relevant page and task context.
+
+Voice controls record descriptions or answers using MediaRecorder. Supported browser audio is sent to `/api/ai/transcribe`; the returned text remains editable before use. Voice input requires microphone permission and a secure browser context such as localhost or HTTPS.
+
+Clarification, chat, and transcription require a running backend and a configured live AI provider, including when browser-only data mode is selected. Prepared local questions are not substituted for model output.
+
+See the [AI contract](AI-CONTRACT.md) for payloads and error handling.
+
+## Browser-only data mode
+
+Set `VITE_DATA_MODE=demo` in `frontend/.env.local` and restart Vite to use local sample data without PostgreSQL. The interface explicitly identifies this mode.
+
+Sample data comes from `../docs/fixtures/seed.json`. Local state is stored under `qadam:demo:v1`; the selected profile is stored under `qadam:actor`. A separate browser profile or private window provides a fresh local walkthrough. Removing these keys deletes the corresponding browser-only state.
+
+Example-fill controls are available only in this mode. They do not automatically confirm or publish information. `/demo/prototype.html` is a static sample artifact with synthetic figures, not a result from a real business.
+
+## Example walkthrough
+
+1. Browse the catalog, then select the business profile.
+2. Create a task, provide its description, and request clarification.
+3. Answer the questions, review the brief, confirm the information, and publish.
+4. Switch to a team profile and submit a proposal for the published task.
+5. Return to the business workspace and accept or reject the proposal.
+6. For an accepted proposal, submit a milestone as the team and confirm it as the business.
+7. Check the resulting team points and reload the page to check persistence.
+8. Open Qadam AI to ask a question about the current task.
+
+## Source layout
 
 ```text
-src/pages/          маршруты и сценарии
-src/components/     переиспользуемые формы, карточки, рейтинг, иконки
-src/domain/         TypeScript DTO, группы и браузерный прогноз рейтинга
-src/services/       Gateway, HTTP-адаптер, localStorage-демо, тесты правил
-src/stores/         выбранный участник, каталог, команды, уведомления
-src/composables/    загрузка задачи с защитой от устаревших ответов
-src/data/           импорт синтетических данных и демонстрационный пример
+src/pages/          Routes and user workflows
+src/components/     Reusable forms, cards, scoring, icons and assistant controls
+src/domain/         TypeScript DTOs, field groups and readiness preview
+src/services/       Gateway, REST adapter, local data adapter and tests
+src/stores/         Selected actor, catalog, teams and notifications
+src/composables/    Shared behavior and task-loading coordination
+src/data/           Synthetic fixtures and the example brief
 ```
 
-JWT, настоящая регистрация и производственная RBAC намеренно не входят в пятичасовой MVP.
-`X-Demo-Actor` моделирует демонстрационный путь и не является защитой для production.
+## Development checks
 
-## Проверено
+Run from `frontend`:
 
-- 27 unit/adapter-проверок: публикация и рейтинг 40 → 95, старый снимок до подтверждения,
-  зависимости метрик, низкий рейтинг и отсутствие лимита, несколько выбранных команд,
-  отклонение всех, запрет чужих действий, повторная награда, сохранение после перезапуска,
-  конфликт revision, неподтверждённые AI-факты, границы уровней, HTTP-ошибки.
-- Chromium: создание → вопросы → 40 → публикация на месте 4 → 95 → место 1;
-  реальная отправка отклика на задачу с 20; два отклика на новую задачу;
-  ручное принятие/отклонение; передача и подтверждение этапа;
-  10 баллов остаются после перезагрузки.
-- Обновление UX: дополнительно проверены открытый каталог, выбор готовых ролей,
-  возврат команды к исходной задаче, отправка отклика, AI-чат, запись и расшифровка голоса,
-  ошибки формы и фокус, поиск/очистка, диалог несохранённых изменений и мобильная вёрстка
-  на ширине 390px. Всего 27 unit/adapter-тестов.
-- TypeScript и production build проходят. Итоговая оценка жюри этим не гарантируется.
+```bash
+npm test
+npm run typecheck
+npm run build
+npm run format:check
+```
 
-## Демо-роли, голос и AI
+The test suite covers publication and scoring, confirmation snapshots, actor rules, proposal decisions, one-time milestone awards, revision conflicts, persistence, AI field handling, and HTTP errors.
 
-Регистрация для пятичасового MVP не используется. `/start` позволяет выбрать бизнес
-или одну из готовых студенческих команд; тот же переключатель всегда доступен в шапке.
-Выбранный ID передаётся Go API через `X-Demo-Actor`.
+Use `npm run format` to apply formatting. After building, `npm run preview` serves the bundle at `http://127.0.0.1:4173`; configure access to the API separately because the development proxy is not a production deployment setup.
 
-«02 Уточнение» теперь запрашивает только настоящие AI-вопросы у `/ai/analyze`,
-в том числе при локальном режиме данных. При недоступном сервере остаётся ручное
-заполнение карточки. Эмблема Qadam AI открывает панель помощи и чат `/ai/chat`.
-В конструкторе можно записать описание и ответы голосом; frontend отправляет `webm`,
-`m4a/mp4` или `ogg` в `/ai/transcribe` и подставляет расшифровку в редактируемое поле.
-Контракт для Go-команды: [AI-CONTRACT.md](AI-CONTRACT.md). Ключ провайдера нельзя
-помещать во frontend или переменные VITE_*.
+## Identity and deployment limits
+
+`/start` and the header select the business or a prepared team profile. Requests use `X-Demo-Actor`; this is a local demonstration identity mechanism, not production authentication. Registration, passwords, JWT sessions, and production access control are not implemented.
+
+A production web server must serve `index.html` for frontend routes such as `/tasks/:id` and `/business`, and route `/api/*` to Go.
+
+See the [API contract](API-CONTRACT.md) and [backend guide](../backend/README.md) for integration details.
