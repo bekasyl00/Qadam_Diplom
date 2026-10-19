@@ -10,7 +10,6 @@ Use the report as the factual source. Keep the presentation concise and give eve
 6. **Evaluation — Mereke.** Six business participants, two matched tasks each, balanced order and the same form. Report time, independent quality and unsupported facts. Six students supply separate usability feedback. Experiments remain planned.
 7. **Demonstration — Bekasyl.** Show one clarification, correction and confirmation. State live provider versus manual mode. Preserve private drafts and show the public snapshot. Use synthetic data.
 8. **Contributions and next steps — all.** Bekasyl frontend/integration; Mereke ongoing AI; Zere backend/database. Distinguish existing Git work from unpublished work. Show the actual YouTrack board and next evidence required.
-9. **Supervisor feedback — Bekasyl.** First pre-defense approved; revised research, architecture and evaluation plan prepared. Meeting around 21 October and signed-form submission remain to be confirmed.
 
 ## Rehearsal questions
 

@@ -252,7 +252,7 @@ The project studies how AI can assist the transformation of informal business ne
 
 **Supervisor:** Altynbek Seitenov
 
-**Current status:** runnable local prototype and first pre-defense preparation. The supervisor has approved the project for the first pre-defense. The revised proposal, architecture and evaluation protocol are prepared for team review; real-user evidence and comparative experiments are still outstanding. Mereke's current AI changes are in progress outside the repository and must be published and reviewed separately.
+**Current status:** runnable local prototype and first pre-defense preparation. The revised proposal, architecture and evaluation protocol are prepared for team review; real-user evidence and comparative experiments are still outstanding. Mereke's current AI changes are in progress outside the repository and must be published and reviewed separately.
 
 **Expected outcomes:** a reproducible platform, a human-confirmed structured brief and an evidence-based comparison of assisted versus manual task formulation. Improvements in time or quality are hypotheses, not established results.
 

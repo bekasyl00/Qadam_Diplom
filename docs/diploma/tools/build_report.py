@@ -170,11 +170,36 @@ def plain(s):
     return re.sub(r'\*\*(.*?)\*\*',r'\1',s).replace('`','')
 
 
+def hyperlink(p, label, target):
+    from docx.opc.constants import RELATIONSHIP_TYPE
+    link = OxmlElement('w:hyperlink')
+    link.set(qn('r:id'), p.part.relate_to(target, RELATIONSHIP_TYPE.HYPERLINK, is_external=True))
+    run = OxmlElement('w:r')
+    props = OxmlElement('w:rPr')
+    color = OxmlElement('w:color'); color.set(qn('w:val'), '0563C1'); props.append(color)
+    underline = OxmlElement('w:u'); underline.set(qn('w:val'), 'single'); props.append(underline)
+    run.append(props)
+    text = OxmlElement('w:t'); text.text = label; run.append(text)
+    link.append(run); p._p.append(link)
+
+
 def runs(p,s):
-    for token in re.split(r'(\*\*.*?\*\*|`[^`]+`)',s):
-        r=p.add_run(plain(token))
-        if token.startswith('**'):r.bold=True
-        if token.startswith('`'):r.font.name='Arial'; r.font.size=Pt(10)
+    pattern = r'(\*\*.*?\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|https?://[^\s<>]+)'
+    for token in re.split(pattern,s):
+        match = re.fullmatch(r'\[([^\]]+)\]\(([^)]+)\)', token)
+        if match:
+            label, target = match.groups()
+            if not target.startswith(('https://', 'http://')):
+                target = 'https://github.com/bekasyl00/Qadam_Diplom/blob/QADAM-12-predefense-revision/docs/diploma/' + target
+            hyperlink(p, label, target)
+        elif token.startswith(('https://', 'http://')):
+            target = token.rstrip('.,;')
+            hyperlink(p, target, target)
+            if len(target) < len(token): p.add_run(token[len(target):])
+        else:
+            r=p.add_run(plain(token))
+            if token.startswith('**'):r.bold=True
+            if token.startswith('`'):r.font.name='Arial'; r.font.size=Pt(10)
 
 
 def report():

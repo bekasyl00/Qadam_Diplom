@@ -12,7 +12,7 @@ Pre-defense preparation report
 
 **Diploma repository** — https://github.com/bekasyl00/Qadam_Diplom
 
-This revised proposal presents Qadam, its architecture, and the planned evaluation of AI-assisted business task formulation. Altynbek Seitenov has approved the project for the first pre-defense. The revision addresses his recommendations on the research gap, database and interaction models, evaluation methods, and individual contributions. Experiments and user interviews are still planned; their results are not claimed here.
+This report presents Qadam, its research basis, requirements, architecture, implementation and planned evaluation of AI-assisted business task formulation. Experiments and user interviews are planned; their results are not claimed here.
 
 Astana, 2026
 
@@ -414,7 +414,7 @@ For example, “make purchasing faster” is weakly verifiable; “generate the 
 
 Treat the pilot descriptively: show all six paired results rather than relying on a p-value. Report assessor exact agreement per dimension and the distribution of score differences before reconciliation. Expand the sample only under a revised protocol; do not promise population-wide effectiveness from this pilot.
 
-Record model, provider, prompt, application version, date, language, and network conditions. Keep configurations fixed within the primary comparison; analyze unavoidable changes separately. Counterbalancing reduces order effects but cannot remove task differences, recruitment bias, assessor expectations, or learning. Field interviews and a later larger study are needed for generalization. The proposed discussion around 21 October reviews this plan; completed experiments are not required for the first pre-defense.
+Record model, provider, prompt, application version, date, language, and network conditions. Keep configurations fixed within the primary comparison; analyze unavoidable changes separately. Counterbalancing reduces order effects but cannot remove task differences, recruitment bias, assessor expectations, or learning. Field interviews and a later larger study are needed for generalization. Completed experiments are not required for the first pre-defense.
 
 <!-- page -->
 ## 10 Individual contributions and responsibilities
@@ -435,19 +435,19 @@ The existing AI implementation appears under Amantai Zere's authored changes. Me
 
 Mereke prepares AI behavior and its test cases; Zere reviews server contracts, persistence, and failure handling; Bekasyl integrates the user-facing flow and checks that users can correct suggestions. Research synthesis is shared: Mereke leads AI papers and evaluation cases, Zere explains data integrity, and Bekasyl explains interaction design and usability.
 
-Before the meeting, each member prepares a two-minute explanation of one concrete artifact, one technical decision, one limitation, and the next planned change. Review partners should be different from implementers, and the resulting review should be linked to the task.
+Before the presentation, each member prepares a two-minute explanation of one concrete artifact, one technical decision, one limitation, and the next planned change. Review partners should be different from implementers, and the resulting review should be linked to the task.
 
 <!-- page -->
 ## 10 Schedule and issue tracking
 
 | Target date | Deliverable and completion evidence |
 | --- | --- |
-| 19 October | Consolidate supervisor feedback and clarify current AI responsibility. |
+| 19 October | Consolidate project documentation and clarify current AI responsibility. |
 | 20 October | Review the revised research gap, ERD, activity and sequence models; prepare YouTrack tasks and confirm account access. |
-| Around 21 October | Proposed online supervisor meeting: architecture, evaluation protocol and individual contributions. Exact time remains unconfirmed. |
-| 22 October | Resolve meeting actions; execute local database, live AI and browser checks with actual results. |
+| 21 October | Team review of architecture, evaluation protocol and individual contributions. |
+| 22 October | Resolve review actions; execute local database, live AI and browser checks with actual results. |
 | 23 October | Peer-review the presentation, inspect task links, and rehearse a reproducible demonstration. |
-| 24 October | First pre-defense checkpoint; submit materials and collect the signed approval form through the required procedure. |
+| 24 October | First pre-defense checkpoint; submit the reviewed project materials. |
 
 Dates are proposed targets, not records of completed work. Field discussions are still outstanding and should be completed where recruitment permits; otherwise present their actual status and the agreed follow-up plan.
 
@@ -481,48 +481,6 @@ Keep original authorship and commit history intact. Create a checkpoint tag only
 | Limited memory, disk or network | Unreliable local setup. Avoid local model downloads for this checkpoint; rehearse on the target laptop. | Bekasyl |
 
 Dependencies include participant availability, supervisor availability, external AI quota, PostgreSQL, and browser microphone permission for the optional voice path. The checkpoint does not require a finished production platform.
-
-<!-- page -->
-## 11 Supervisor feedback and revision record
-
-### Approval and scope
-
-Altynbek Seitenov reviewed the proposal positively and approved the project for the first pre-defense [22]. His written feedback was supplied to the team and incorporated into this revision on 19 October 2026; the original message date was not provided. Approval applies to the first pre-defense, not to completed experiments or a final diploma defense.
-
-The supervisor stated that he would indicate approval on the application form. Collection and submission of the signed form remain to be confirmed. He proposed another online meeting around 21 October; no exact appointment is recorded.
-
-| Supervisor recommendation | Revision in this report | Remaining team action |
-| --- | --- | --- |
-| Connect studies, limitations, gap and solution | Section 3 explains methods and limitations of the central papers and maps them to design and evaluation. | Personally study the key papers and rehearse explanations. |
-| Show the complete architectural vision | Section 7 adds ERD, UML activity and sequence diagrams, distinguishing current data from proposed identity support. | Peer-review diagrams and discuss future scope. |
-| Explain manual versus AI evaluation | Section 9 specifies paired tasks, timing, rubric, factual support, failures and descriptive analysis. | Agree the protocol and recruitment; conduct the study later. |
-| Clarify individual contributions | Section 10 separates repository evidence, Mereke's unpublished AI work, and future responsibilities. | Each member demonstrates an artifact and submits their next work. |
-| Consolidate materials before the next meeting | This revision combines the changes and an actionable task list. | Confirm meeting time and review the updated proposal. |
-
-### Communication and meeting preparation
-
-Future messages to the supervisor should begin with an appropriate greeting, identify the purpose and attached version, and end with the sender's name. This follows his explicit request for professional academic communication. A draft response is included in the supporting files; it has not been sent.
-
-The meeting agenda is: research gap and key publications; data entities and confirmation flow; manual comparison and quality rubric; each member's contribution and next task; remaining evidence and submission procedure. No experiment results are expected at this stage. Bring actual questions and limits rather than treating planned metrics as measured achievements.
-
-<!-- page -->
-## 11 Submission readiness
-
-| Assignment component | Material available | Remaining evidence |
-| --- | --- | --- |
-| Proposal | Problem, scope and research question; first pre-defense approval | Reconfirm refinements at the meeting |
-| Relevance | Discussion protocol and decision rules | Actual discussions or client agreement |
-| Literature | Eight scientific sources, critical synthesis and research gap | Individual reading and oral explanation |
-| Existing systems | Four systems and eight consistent criteria | Review against field findings |
-| Technology choices | Five decisions with reasonable alternatives | Revisit if project requirements change |
-| Requirements | Named requirements and acceptance criteria | Execution records and evidence-driven changes |
-| Architecture | Context, use case, component, ERD, activity and sequence views | Independent team review |
-| UX and prototype | Existing Vue and Go implementation and walkthrough | Dated browser demonstration |
-| Evaluation | Manual comparison, rubric, measures and bias controls | Recruitment and later study execution |
-| Management | Contribution summary and live YouTrack project | Member accounts, linked reviews and submission tag |
-| Supervision | Written approval and mapped revisions | Follow-up meeting and signed form procedure |
-
-This revision addresses the supervisor's recommendations in the written proposal. Human review, field evidence, member account setup, and experiments retain their actual status. The accompanying CRITERIA_CHECKLIST.md maps all eleven components and Git requirements to evidence and remaining actions. The team should state these boundaries clearly while presenting the implemented prototype and the rationale for its design.
 
 <!-- page -->
 ## References
@@ -575,6 +533,3 @@ Scientific publications [1–8] form the core literature review. Product and tec
 [20] Supplied assignment “До 24 октября.docx”. Eleven checkpoint components and Git repository requirements. The source file was supplied by the student; its text defines the coverage checklist for this report.
 
 [21] Local verification and traceability records in this package: `VERIFICATION.md`, `TRACEABILITY.md`, `BACKLOG.csv`, and `EVIDENCE_FORMS.md`. Planned tasks and empty forms are not results or approvals.
-
-
-[22] Altynbek Seitenov. Written supervisor feedback supplied by Bekasyl Zhaksylyk on 19 October 2026. Positive assessment and approval for the first pre-defense, with recommendations on literature, architecture, methodology and contributions. Original message date not provided; retained by the team.

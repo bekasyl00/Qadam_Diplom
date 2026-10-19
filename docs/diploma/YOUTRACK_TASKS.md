@@ -74,7 +74,7 @@ Owner: **Bekasyl Zhaksylyk**. Reviewer: Mereke Myrzakhan. Target: 2026-10-20. Pr
 
 Send a professional greeting and request an exact meeting time through the normal channel. Share revised materials and questions. Record agreed date and outcome. First pre-defense is approved, but the meeting and signed form are not yet confirmed.
 
-Evidence: SUPERVISOR_REPLY.md draft; meeting notes.
+Evidence: Agreed appointment and meeting notes.
 
 ## [QADAM-10](https://bekasyl00.youtrack.cloud/issue/QADAM-10) — Collect genuine user discussions and pilot recruitment agreements
 

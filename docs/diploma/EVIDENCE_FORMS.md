@@ -1,6 +1,6 @@
-# Field evidence and supervisor review forms
+# Field evidence and evaluation forms
 
-Participant and evaluation forms below are blank templates, not completed studies. The supervisor feedback is recorded separately. Keep identifiable participant information outside the public repository. Publish pseudonymized notes only with appropriate consent.
+Participant and evaluation forms below are blank templates, not completed studies. Keep identifiable participant information outside the public repository. Publish pseudonymized notes only with appropriate consent.
 
 ## Participant discussion
 
@@ -37,19 +37,6 @@ Do not replace missing evidence with an illustrative quotation. Retain observati
 | Change ID | Evidence IDs | Previous requirement | Revised requirement | Reason | Author | Review / commit |
 | --- | --- | --- | --- | --- | --- | --- |
 | Not assigned | Pending | — | — | — | — | — |
-
-## Supervisor review
-
-The first feedback and approval have been received; see [the revision record](SUPERVISOR_REVIEW.md). The next meeting is proposed around 21 October, with exact time unconfirmed.
-
-### Follow-up meeting template
-
-- Actual date, attendees and materials: pending.
-- Decisions and rejected alternatives: pending.
-- Changes, accountable owner and target: pending.
-- Evidence of completion and further supervisor response: pending.
-
-A prepared revision is not evidence of a follow-up review. Keep the original approval separate from later decisions.
 
 ## Evaluation record schema
 

@@ -36,3 +36,9 @@ The final DOCX is generated from REPORT.md with diagrams from the bundled builde
 - Only administrator membership is available. Named owners, reviewers and target dates are in issue descriptions; individual account assignment remains pending. The Kanban workflow may assign admin automatically when changing stage.
 - No fresh application test, live AI call, interview, experiment, peer approval or submission is claimed in this documentation run. Historical command results above remain dated.
 - Delivery uses a QADAM-12 task branch and Pull Request. Another team member must review before merge; create the immutable pre-defense-1 tag only for the reviewed submission version.
+
+## Scope simplification — 19 October 2026
+
+Removed the supervisor-feedback chapter, administrative readiness chapter, reply draft and separate feedback record from the deliverable at the team’s request. The project research, requirements, architecture, evaluation and contribution content remain. Earlier page counts describe the earlier export.
+
+The simplified Word export contains 23 actual hyperlink elements with 22 distinct destinations, including the repository URL on the cover. Local Markdown references resolve; removed feedback files have no remaining document links.

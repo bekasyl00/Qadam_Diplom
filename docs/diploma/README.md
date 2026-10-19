@@ -4,7 +4,7 @@
 
 Team: Bekasyl Zhaksylyk, Mereke Myrzakhan, Amantai Zere. Supervisor: Altynbek Seitenov.
 
-This revision addresses the supervisor's positive first pre-defense review. It strengthens the research gap, adds database and interaction diagrams, specifies a manual-versus-AI evaluation plan and separates completed contributions from future responsibilities. Mereke leads ongoing AI development; his new work is not yet in the repository.
+This package contains the project proposal, literature review, requirements, architecture, evaluation plan and team work plan for the first pre-defense.
 
 ## Materials
 
@@ -13,8 +13,6 @@ This revision addresses the supervisor's positive first pre-defense review. It s
 - [Word report](Qadam_Predefense_Report.docx) and [editable text](REPORT.md).
 - [Diagrams](diagrams/): context, use cases, components, ERD, activity, sequence and interface workflow; SVG sources and PNG exports.
 - [Reading preparation](LITERATURE_NOTES.md).
-- [Supervisor review and revision record](SUPERVISOR_REVIEW.md).
-- [Draft supervisor reply](SUPERVISOR_REPLY.md), not sent.
 - [Contribution and work plan](YOUTRACK_TASKS.md) and [CSV snapshot](BACKLOG.csv).
 - [Evidence templates](EVIDENCE_FORMS.md), [traceability](TRACEABILITY.md), [verification](VERIFICATION.md).
 - [Presentation and rehearsal guide](PRESENTATION.md).
@@ -25,9 +23,9 @@ This revision addresses the supervisor's positive first pre-defense review. It s
 
 Use one accountable owner, a reviewer, target date and acceptance evidence per task. The administrator is currently the only project member; named ownership is recorded in descriptions until accounts are added. A prepared report awaits peer review; study results, interviews and submission receipts must come from actual work.
 
-## Before the next meeting
+## Preparation
 
-Read the assigned papers, review all diagrams, confirm individual contributions and agree the pilot protocol. Confirm the meeting time around 21 October and the process for collecting the signed approval form. The supervisor has approved the first pre-defense; this does not imply that the revised report, final diploma or experiment has been approved.
+Read the assigned papers, review the diagrams, confirm individual contributions and agree the evaluation protocol.
 
 ## Rebuild
 
