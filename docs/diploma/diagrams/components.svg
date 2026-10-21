@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="770" viewBox="0 0 1100 770">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="15" y="20" width="280" height="685" fill="#fafafa" stroke="#67717e" stroke-width="1.5" />
+<text x="155" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#202124">Browser application</text>
+<rect x="40" y="100" width="230" height="125" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="155.0" y="145.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="normal" fill="#202124">«component»</text>
+<text x="155.0" y="173.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="normal" fill="#202124">Vue pages and</text>
+<text x="155.0" y="201.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="normal" fill="#202124">UI components</text>
+<rect x="40" y="280" width="230" height="105" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="155.0" y="329.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="normal" fill="#202124">«component»</text>
+<text x="155.0" y="357.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="normal" fill="#202124">Pinia workspace</text>
+<rect x="40" y="440" width="230" height="105" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="155.0" y="489.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">«component»</text>
+<text x="155.0" y="515.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">REST / demo adapter</text>
+<polyline points="155,225 155,280" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="155,280 149.58067956842027,268.1834452542265 160.41932043157973,268.1834452542265" fill="#596372"/>
+<polyline points="155,385 155,440" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="155,440 149.58067956842027,428.1834452542265 160.41932043157973,428.1834452542265" fill="#596372"/>
+<text x="155" y="614" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">MediaRecorder captures</text>
+<text x="155" y="639" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">optional audio input</text>
+<rect x="350" y="20" width="440" height="685" fill="#fafafa" stroke="#67717e" stroke-width="1.5" />
+<text x="570" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#202124">Go application</text>
+<rect x="385" y="100" width="370" height="95" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="570.0" y="144.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">«component» HTTP API</text>
+<text x="570.0" y="170.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Validation and demo-actor access</text>
+<rect x="385" y="250" width="370" height="100" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="570.0" y="296.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">«component» Domain services</text>
+<text x="570.0" y="321.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">Tasks · proposals · milestones · teams</text>
+<rect x="385" y="405" width="175" height="110" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="472.5" y="444.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">«component»</text>
+<text x="472.5" y="469.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">Rating</text>
+<text x="472.5" y="494.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">Pure calculation</text>
+<rect x="585" y="405" width="170" height="110" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="670.0" y="444.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">«component»</text>
+<text x="670.0" y="469.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">AI adapter</text>
+<text x="670.0" y="494.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">Source checks</text>
+<rect x="385" y="575" width="370" height="80" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="570.0" y="624.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">«component» SQL repositories</text>
+<polyline points="270,487 322,487 322,147 385,147" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="385,147 373.1834452542265,152.41932043157973 373.1834452542265,141.58067956842027" fill="#596372"/>
+<text x="320" y="228" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="normal" fill="#202124">REST</text>
+<polyline points="570,195 570,250" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="570,250 564.5806795684202,238.18344525422648 575.4193204315798,238.18344525422648" fill="#596372"/>
+<polyline points="475,350 475,405" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="475,405 469.58067956842024,393.1834452542265 480.41932043157976,393.1834452542265" fill="#596372"/>
+<polyline points="735,195 775,195 775,375 670,375 670,405" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="670,405 664.5806795684202,393.1834452542265 675.4193204315798,393.1834452542265" fill="#596372"/>
+<polyline points="570,350 570,575" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="570,575 564.5806795684202,563.1834452542265 575.4193204315798,563.1834452542265" fill="#596372"/>
+<rect x="840" y="565" width="245" height="100" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="962.5" y="598.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">PostgreSQL</text>
+<text x="962.5" y="624.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Tasks, snapshots,</text>
+<text x="962.5" y="650.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">proposals and awards</text>
+<rect x="840" y="380" width="245" height="140" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="962.5" y="433.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">External AI</text>
+<text x="962.5" y="460.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">OpenAI / Groq</text>
+<text x="962.5" y="487.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Text and transcription</text>
+<polyline points="755,615 840,615" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="840,615 828.1834452542265,620.4193204315798 828.1834452542265,609.5806795684202" fill="#596372"/>
+<polyline points="755,460 840,460" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="840,460 828.1834452542265,465.41932043157976 828.1834452542265,454.58067956842024" fill="#596372"/>
+<text x="550" y="750" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Client-selected demo identity is not production authentication</text>
+</svg>

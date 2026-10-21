@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="590" viewBox="0 0 1100 590">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="355" y="185" width="390" height="210" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="550.0" y="270.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="normal" fill="#202124">Qadam platform</text>
+<text x="550.0" y="303.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="normal" fill="#202124">Task formulation and</text>
+<text x="550.0" y="336.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="normal" fill="#202124">team collaboration</text>
+<rect x="25" y="35" width="285" height="110" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="167.5" y="100.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="normal" fill="#202124">Business representative</text>
+<rect x="25" y="430" width="285" height="110" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="167.5" y="496.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">Student team</text>
+<rect x="795" y="35" width="275" height="110" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="932.5" y="101.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">Guest</text>
+<rect x="790" y="430" width="290" height="110" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="935.0" y="481.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">External AI provider</text>
+<text x="935.0" y="511.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">OpenAI or Groq</text>
+<polyline points="310,90 550,90 550,185" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="550,185 544.5806795684202,173.18344525422648 555.4193204315798,173.18344525422648" fill="#596372"/>
+<text x="500" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">Description, answers, approval</text>
+<polyline points="310,480 440,480 440,395" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="440,395 445.41932043157976,406.8165547457735 434.58067956842024,406.8165547457735" fill="#596372"/>
+<text x="520" y="516" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">Proposals and milestone result</text>
+<polyline points="870,145 870,245 745,245" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="745,245 756.8165547457735,239.58067956842027 756.8165547457735,250.41932043157973" fill="#596372"/>
+<text x="980" y="202" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="normal" fill="#202124">Browse public</text>
+<text x="980" y="226" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="normal" fill="#202124">briefs</text>
+<polyline points="745,330 990,330 990,430" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="990,430 984.5806795684202,418.1834452542265 995.4193204315798,418.1834452542265" fill="#596372"/>
+<text x="908" y="309" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="normal" fill="#202124">Authorized text / audio</text>
+<polyline points="790,475 710,475 710,395" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="710,395 715.4193204315798,406.8165547457735 704.5806795684202,406.8165547457735" fill="#596372"/>
+<text x="831" y="571" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="normal" fill="#202124">Questions, suggestions, transcript</text>
+</svg>

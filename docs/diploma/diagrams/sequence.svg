@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1120" viewBox="0 0 1100 1120">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="5" y="20" width="150" height="55" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="80.0" y="57.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">User</text>
+<polyline points="80,75 80,1090" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<rect x="225" y="20" width="150" height="55" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="300.0" y="57.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Vue frontend</text>
+<polyline points="300,75 300,1090" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<rect x="455" y="20" width="150" height="55" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="530.0" y="57.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Go backend</text>
+<polyline points="530,75 530,1090" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<rect x="685" y="20" width="150" height="55" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="760.0" y="57.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">AI provider</text>
+<polyline points="760,75 760,1090" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<rect x="935" y="20" width="150" height="55" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="1010.0" y="57.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">PostgreSQL</text>
+<polyline points="1010,75 1010,1090" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polyline points="80,120 300,120" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="300,120 288.1834452542265,125.41932043157973 288.1834452542265,114.58067956842027" fill="#596372"/>
+<text x="190.0" y="111" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Describe task</text>
+<polyline points="300,170 530,170" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="530,170 518.1834452542265,175.41932043157973 518.1834452542265,164.58067956842027" fill="#596372"/>
+<text x="415.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">POST /tasks</text>
+<polyline points="530,210 1010,210" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="1010,210 998.1834452542265,215.41932043157973 998.1834452542265,204.58067956842027" fill="#596372"/>
+<text x="770.0" y="201" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">INSERT private draft</text>
+<polyline points="530,250 300,250" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polygon points="300,250 311.8165547457735,244.58067956842027 311.8165547457735,255.41932043157973" fill="#596372"/>
+<text x="415.0" y="241" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Draft ID and revision</text>
+<polyline points="300,310 530,310" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="530,310 518.1834452542265,315.41932043157976 518.1834452542265,304.58067956842024" fill="#596372"/>
+<text x="415.0" y="301" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">POST /ai/analyze (clarify)</text>
+<polyline points="530,355 760,355" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="760,355 748.1834452542265,360.41932043157976 748.1834452542265,349.58067956842024" fill="#596372"/>
+<text x="645.0" y="346" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Description + constraints</text>
+<polyline points="760,395 530,395" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polygon points="530,395 541.8165547457735,389.58067956842024 541.8165547457735,400.41932043157976" fill="#596372"/>
+<text x="645.0" y="386" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Questions / suggestions</text>
+<polyline points="530,435 300,435" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polygon points="300,435 311.8165547457735,429.58067956842024 311.8165547457735,440.41932043157976" fill="#596372"/>
+<text x="415.0" y="426" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Validated questions</text>
+<polyline points="80,485 300,485" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="300,485 288.1834452542265,490.41932043157976 288.1834452542265,479.58067956842024" fill="#596372"/>
+<text x="190.0" y="476" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Answer questions</text>
+<polyline points="300,535 530,535" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="530,535 518.1834452542265,540.4193204315798 518.1834452542265,529.5806795684202" fill="#596372"/>
+<text x="415.0" y="526" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">POST /ai/analyze (assemble)</text>
+<polyline points="530,580 760,580" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="760,580 748.1834452542265,585.4193204315798 748.1834452542265,574.5806795684202" fill="#596372"/>
+<text x="645.0" y="571" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Description + answers</text>
+<polyline points="760,620 530,620" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polygon points="530,620 541.8165547457735,614.5806795684202 541.8165547457735,625.4193204315798" fill="#596372"/>
+<text x="645.0" y="611" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Candidate brief + sources</text>
+<polyline points="530,660 300,660" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polygon points="300,660 311.8165547457735,654.5806795684202 311.8165547457735,665.4193204315798" fill="#596372"/>
+<text x="415.0" y="651" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Validated candidates</text>
+<polyline points="80,710 300,710" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="300,710 288.1834452542265,715.4193204315798 288.1834452542265,704.5806795684202" fill="#596372"/>
+<text x="190.0" y="701" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Review and edit</text>
+<polyline points="300,755 530,755" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="530,755 518.1834452542265,760.4193204315798 518.1834452542265,749.5806795684202" fill="#596372"/>
+<text x="415.0" y="746" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">PUT /tasks/{id}/card</text>
+<polyline points="530,795 1010,795" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="1010,795 998.1834452542265,800.4193204315798 998.1834452542265,789.5806795684202" fill="#596372"/>
+<text x="770.0" y="786" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Check owner/revision; save fields</text>
+<polyline points="530,830 300,830" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polygon points="300,830 311.8165547457735,824.5806795684202 311.8165547457735,835.4193204315798" fill="#596372"/>
+<text x="415.0" y="821" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Updated revision</text>
+<polyline points="80,870 300,870" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="300,870 288.1834452542265,875.4193204315798 288.1834452542265,864.5806795684202" fill="#596372"/>
+<text x="190.0" y="861" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Confirm facts</text>
+<polyline points="300,910 530,910" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="530,910 518.1834452542265,915.4193204315798 518.1834452542265,904.5806795684202" fill="#596372"/>
+<text x="415.0" y="901" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">POST /tasks/{id}/confirm</text>
+<polyline points="530,950 1010,950" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="1010,950 998.1834452542265,955.4193204315798 998.1834452542265,944.5806795684202" fill="#596372"/>
+<text x="770.0" y="941" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Transaction: snapshot + score</text>
+<rect x="175" y="980" width="900" height="105" fill="white" stroke="#67717e" stroke-width="1.5" />
+<text x="183" y="1003" text-anchor="start" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">opt  [user chooses publication]</text>
+<polyline points="300,1015 300,1085" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polyline points="530,1015 530,1085" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polyline points="760,1015 760,1085" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polyline points="1010,1015 1010,1085" fill="none" stroke="#596372" stroke-width="1.5" stroke-dasharray="8 5"/>
+<polyline points="300,1040 530,1040" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="530,1040 518.1834452542265,1045.4193204315798 518.1834452542265,1034.5806795684202" fill="#596372"/>
+<text x="415.0" y="1031" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">POST /tasks/{id}/publish</text>
+<polyline points="530,1070 1010,1070" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="1010,1070 998.1834452542265,1075.4193204315798 998.1834452542265,1064.5806795684202" fill="#596372"/>
+<text x="770.0" y="1061" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Check confirmation; publish</text>
+</svg>

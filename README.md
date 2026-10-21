@@ -246,11 +246,19 @@ The project studies how AI can assist the transformation of informal business ne
 
 **Team members**
 
-- Bekasyl Zhaksylyk
-- Mereke Myrzakhan
-- Amantai Zere
+- Bekasyl Zhaksylyk — frontend, UX, integration and demonstration.
+- Mereke Myrzakhan — ongoing AI development, prompts, provider behavior and AI evaluation.
+- Amantai Zere — backend, database integrity and API tests.
 
 **Supervisor:** Altynbek Seitenov
+
+**Current status:** runnable local prototype and first pre-defense preparation. The revised proposal, architecture and evaluation protocol are prepared for team review; real-user evidence and comparative experiments are still outstanding. Mereke's current AI changes are in progress outside the repository and must be published and reviewed separately.
+
+**Expected outcomes:** a reproducible platform, a human-confirmed structured brief and an evidence-based comparison of assisted versus manual task formulation. Improvements in time or quality are hypotheses, not established results.
+
+[YouTrack project](https://bekasyl00.youtrack.cloud/projects/QADAM) · [Kanban board](https://bekasyl00.youtrack.cloud/agiles/204-1/218-1) · [Pre-defense documents](docs/diploma/README.md) · [Criteria checklist](docs/diploma/CRITERIA_CHECKLIST.md)
+
+Use individual accounts and issue-linked task branches. Submit a pull request with validation evidence and obtain another team member's review before merging to `main`. Record the reviewed submission using an immutable `pre-defense-1` tag. This revision does not fabricate earlier review or study evidence.
 
 ## Deployment
 

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1130" viewBox="0 0 1100 1130">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="10" y="10" width="1080" height="1100" fill="white" stroke="#67717e" stroke-width="1.5" />
+<polyline points="365,10 365,1110" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polyline points="725,10 725,1110" fill="none" stroke="#596372" stroke-width="1.5"/>
+<text x="188" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#202124">Business representative</text>
+<text x="545" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#202124">Qadam interface and API</text>
+<text x="907" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#202124">External AI service</text>
+<polyline points="10,78 1090,78" fill="none" stroke="#596372" stroke-width="1.5"/>
+<circle cx="188" cy="105" r="8" fill="black"/>
+<polyline points="188,113 188,140" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="188,140 182.58067956842027,128.18344525422648 193.41932043157973,128.18344525422648" fill="#596372"/>
+<rect x="48" y="140" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="188.0" y="183.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">Describe request</text>
+<polyline points="328,173 405,173" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="405,173 393.1834452542265,178.41932043157973 393.1834452542265,167.58067956842027" fill="#596372"/>
+<rect x="405" y="140" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="545.0" y="183.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">Save private draft</text>
+<polyline points="405,190 350,190 350,250 188,250 188,265" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="188,265 182.58067956842027,253.18344525422648 193.41932043157973,253.18344525422648" fill="#596372"/>
+<polygon points="188.0,265 298,300.0 188.0,335 78,300.0" fill="white" stroke="#596372" stroke-width="1.5"/>
+<text x="188.0" y="308.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Use AI?</text>
+<polyline points="298,300 405,300" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="405,300 393.1834452542265,305.41932043157976 393.1834452542265,294.58067956842024" fill="#596372"/>
+<text x="348" y="289" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[yes]</text>
+<rect x="405" y="270" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="545.0" y="313.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">Send description</text>
+<polyline points="685,302 770,302" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="770,302 758.1834452542265,307.41932043157976 758.1834452542265,296.58067956842024" fill="#596372"/>
+<rect x="770" y="270" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="910.0" y="313.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">Generate questions</text>
+<polyline points="907,335 907,372 545,372 545,385" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="545,385 539.5806795684202,373.1834452542265 550.4193204315798,373.1834452542265" fill="#596372"/>
+<polygon points="545.0,385 665,420.0 545.0,455 425,420.0" fill="white" stroke="#596372" stroke-width="1.5"/>
+<text x="545.0" y="428.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">AI usable?</text>
+<polyline points="425,420 188,420 188,460" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="188,460 182.58067956842027,448.1834452542265 193.41932043157973,448.1834452542265" fill="#596372"/>
+<text x="360" y="409" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[yes]</text>
+<rect x="48" y="460" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="188.0" y="503.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">Answer questions</text>
+<polyline points="328,492 770,492" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="770,492 758.1834452542265,497.41932043157976 758.1834452542265,486.58067956842024" fill="#596372"/>
+<text x="548" y="484" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Request proposed brief</text>
+<rect x="770" y="460" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="910.0" y="503.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">Suggest brief fields</text>
+<polyline points="907,525 907,570 685,570" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="685,570 696.8165547457735,564.5806795684202 696.8165547457735,575.4193204315798" fill="#596372"/>
+<rect x="405" y="540" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="545.0" y="582.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Validate output / sources</text>
+<polyline points="405,572 328,572 328,665" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="328,665 322.58067956842024,653.1834452542265 333.41932043157976,653.1834452542265" fill="#596372"/>
+<polyline points="188,335 32,335 32,640 48,640" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="48,640 36.1834452542265,645.4193204315798 36.1834452542265,634.5806795684202" fill="#596372"/>
+<text x="80" y="379" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[no]</text>
+<polyline points="545,455 545,515 350,515 350,650 328,650" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="328,650 339.8165547457735,644.5806795684202 339.8165547457735,655.4193204315798" fill="#596372"/>
+<text x="630" y="453" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="normal" fill="#202124">[no]</text>
+<rect x="48" y="615" width="280" height="95" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="188.0" y="659.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">Review or complete</text>
+<text x="188.0" y="688.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="normal" fill="#202124">fields manually</text>
+<polyline points="328,680 405,680" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="405,680 393.1834452542265,685.4193204315798 393.1834452542265,674.5806795684202" fill="#596372"/>
+<rect x="405" y="645" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="545.0" y="687.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Save with revision check</text>
+<polyline points="545,710 545,750 188,750 188,765" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="188,765 182.58067956842027,753.1834452542265 193.41932043157973,753.1834452542265" fill="#596372"/>
+<rect x="48" y="765" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="188.0" y="808.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="normal" fill="#202124">Confirm reviewed facts</text>
+<polyline points="328,798 405,798" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="405,798 393.1834452542265,803.4193204315798 393.1834452542265,792.5806795684202" fill="#596372"/>
+<rect x="405" y="765" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="545.0" y="807.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Persist snapshot and score</text>
+<polyline points="545,830 545,860 188,860 188,875" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="188,875 182.58067956842027,863.1834452542265 193.41932043157973,863.1834452542265" fill="#596372"/>
+<polygon points="188.0,875 298,910.0 188.0,945 78,910.0" fill="white" stroke="#596372" stroke-width="1.5"/>
+<text x="188.0" y="918.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Publish?</text>
+<polyline points="298,910 405,910" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="405,910 393.1834452542265,915.4193204315798 393.1834452542265,904.5806795684202" fill="#596372"/>
+<text x="350" y="899" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[yes]</text>
+<rect x="405" y="880" width="280" height="65" rx="11" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5"/>
+<text x="545.0" y="922.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Publish confirmed snapshot</text>
+<polyline points="188,945 188,995 545,995 545,1017" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="545,1017 539.5806795684202,1005.1834452542265 550.4193204315798,1005.1834452542265" fill="#596372"/>
+<text x="240" y="982" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[no] retain private</text>
+<polyline points="545,945 545,1017" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="545,1017 539.5806795684202,1005.1834452542265 550.4193204315798,1005.1834452542265" fill="#596372"/>
+<circle cx="545" cy="1035" r="14" fill="white" stroke="black" stroke-width="1.5"/>
+<circle cx="545" cy="1035" r="8" fill="black"/>
+<text x="550" y="1087" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="normal" fill="#202124">Optional voice is transcribed before text entry; failed assembly also returns to manual review</text>
+</svg>

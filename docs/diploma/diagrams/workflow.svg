@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="475" viewBox="0 0 1100 475">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="20" y="25" width="240" height="315" fill="white" stroke="#67717e" stroke-width="1.5" />
+<rect x="20" y="25" width="240" height="64" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="140.0" y="68.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">01 Describe</text>
+<text x="140" y="144" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Business description</text>
+<text x="140" y="193" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[ Editable text ]</text>
+<text x="140" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[ Record voice ]</text>
+<text x="140" y="291" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Get AI questions</text>
+<polyline points="260,195 292,195" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="292,195 280.1834452542265,200.41932043157973 280.1834452542265,189.58067956842027" fill="#596372"/>
+<rect x="295" y="25" width="240" height="315" fill="white" stroke="#67717e" stroke-width="1.5" />
+<rect x="295" y="25" width="240" height="64" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="415.0" y="68.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">02 Clarify</text>
+<text x="415" y="144" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Contextual questions</text>
+<text x="415" y="193" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">[ Editable answers ]</text>
+<text x="415" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Source-linked input</text>
+<text x="415" y="291" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Create draft brief</text>
+<polyline points="535,195 567,195" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="567,195 555.1834452542265,200.41932043157973 555.1834452542265,189.58067956842027" fill="#596372"/>
+<rect x="570" y="25" width="240" height="315" fill="white" stroke="#67717e" stroke-width="1.5" />
+<rect x="570" y="25" width="240" height="64" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="690.0" y="68.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">03 Review</text>
+<text x="690" y="144" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">16 editable fields</text>
+<text x="690" y="193" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Completeness indicator</text>
+<text x="690" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Review suggestions</text>
+<text x="690" y="291" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Confirm and publish</text>
+<polyline points="810,195 842,195" fill="none" stroke="#596372" stroke-width="1.5"/>
+<polygon points="842,195 830.1834452542265,200.41932043157973 830.1834452542265,189.58067956842027" fill="#596372"/>
+<rect x="845" y="25" width="240" height="315" fill="white" stroke="#67717e" stroke-width="1.5" />
+<rect x="845" y="25" width="240" height="64" fill="#f4f5f7" stroke="#67717e" stroke-width="1.5" />
+<text x="965.0" y="68.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">04 Collaborate</text>
+<text x="965" y="144" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Published task</text>
+<text x="965" y="193" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Team proposal</text>
+<text x="965" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Business selection</text>
+<text x="965" y="291" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="normal" fill="#202124">Confirm milestone</text>
+<text x="550" y="403" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="normal" fill="#202124">AI unavailable → manual form remains available</text>
+<text x="550" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="normal" fill="#202124">Schematic workflow, not an application screenshot</text>
+</svg>
