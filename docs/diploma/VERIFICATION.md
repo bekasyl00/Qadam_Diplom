@@ -25,7 +25,7 @@ Do not convert these missing checks into “passed” based on a historical inte
 
 ## Document validation
 
-The final DOCX is generated from REPORT.md with diagrams from the bundled builder. On 12 October, the report was rendered and all 21 pages visually reviewed; table widths, page overflow, diagram connectors and numbering were corrected. Internal document links and all 15 CSV task records were checked. This verifies document layout and package consistency, not supervisor acceptance of its academic content.
+The earlier DOCX was generated from REPORT.md with diagrams from the bundled builder. On 12 October, the report was rendered and all 21 pages visually reviewed; table widths, page overflow, diagram connectors and numbering were corrected. Internal document links and all 15 CSV task records were checked. This verifies document layout and package consistency, not supervisor acceptance of its academic content.
 
 ## Documentation and tracking checks — 19 October 2026
 
@@ -42,3 +42,13 @@ The final DOCX is generated from REPORT.md with diagrams from the bundled builde
 Removed the supervisor-feedback chapter, administrative readiness chapter, reply draft and separate feedback record from the deliverable at the team’s request. The project research, requirements, architecture, evaluation and contribution content remain. Earlier page counts describe the earlier export.
 
 The simplified Word export contains 23 actual hyperlink elements with 22 distinct destinations, including the repository URL on the cover. Local Markdown references resolve; removed feedback files have no remaining document links.
+
+
+## Consolidated submission document — 21 October 2026
+
+- Used the team's newly supplied Qadam_Predefense.docx as the document authority. Preserved all 16 tables and eight embedded images; normalized section numbering and added a linked table of contents.
+- Retained the supplied supervisor-feedback section because the current form requires all eleven components. This supersedes the earlier simplified export.
+- Added group SE-2418, updated account assignments and linked the report to prob-period-1, the tag required by the current form. Telephone numbers and student email addresses were not added.
+- Exported a 30-page PDF and inspected page renders. All twelve contents entries, including References, match the corresponding page numbers. PDF contains 59 link annotations, including 47 external links. Tagged file paths resolve to files in the repository.
+- Exported matching REPORT.md text from the final Word report and retained the supplied layout. The final PDF is approximately 2 MB, below the form's 100 MB limit.
+- No new application tests, live AI calls, interviews, comparative experiments, peer approvals or university submission receipt are claimed.

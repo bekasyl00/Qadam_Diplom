@@ -2,7 +2,7 @@
 
 **Development of the Qadam Platform for Business Task Formulation Using Artificial Intelligence**
 
-Team: Bekasyl Zhaksylyk, Mereke Myrzakhan, Amantai Zere. Supervisor: Altynbek Seitenov.
+Team: Bekasyl Zhaksylyk, Mereke Myrzakhan, Amantai Zere. Group: SE-2418. Supervisor: Altynbek Seitenov.
 
 This package contains the project proposal, literature review, requirements, architecture, evaluation plan and team work plan for the first pre-defense.
 
@@ -10,7 +10,7 @@ This package contains the project proposal, literature review, requirements, arc
 
 - [Assignment criteria and remaining evidence](CRITERIA_CHECKLIST.md).
 
-- [Word report](Qadam_Predefense_Report.docx) and [editable text](REPORT.md).
+- [Submission PDF](SE-2418_Zhaksylyk_ProbPeriod1.pdf), [Word report](Qadam_Predefense_Report.docx) and [matching text](REPORT.md). The consolidated report contains eleven required sections, a linked table of contents and full source links.
 - [Diagrams](diagrams/): context, use cases, components, ERD, activity, sequence and interface workflow; SVG sources and PNG exports.
 - [Reading preparation](LITERATURE_NOTES.md).
 - [Contribution and work plan](YOUTRACK_TASKS.md) and [CSV snapshot](BACKLOG.csv).
@@ -19,21 +19,18 @@ This package contains the project proposal, literature review, requirements, arc
 
 ## Team tracking
 
-[Qadam project](https://bekasyl00.youtrack.cloud/projects/QADAM) · [Kanban board](https://bekasyl00.youtrack.cloud/agiles/204-1/218-1)
+[Qadam project](https://bekasyl00.youtrack.cloud/projects/QADAM) · [Kanban board](https://bekasyl00.youtrack.cloud/agiles/204-1/current)
 
-Use one accountable owner, a reviewer, target date and acceptance evidence per task. The administrator is currently the only project member; named ownership is recorded in descriptions until accounts are added. A prepared report awaits peer review; study results, interviews and submission receipts must come from actual work.
+Use one accountable owner, a reviewer, target date and acceptance evidence per task. All three team members have assigned accounts. The 21 October snapshot contains 13 tasks: six in Backlog, one in Development, five in Review and one Done. A prepared report awaits peer review; study results, interviews and submission receipts must come from actual work.
 
 ## Preparation
 
 Read the assigned papers, review the diagrams, confirm individual contributions and agree the evaluation protocol.
 
-## Rebuild
+## Submission version and editing
 
-The editable sources are `REPORT.md`, `tools/build_report.py` and `tools/architecture_diagrams.py`. The builder requires Python, python-docx, Pillow and Arial or a compatible configured font.
+The form requires [prob-period-1](https://github.com/bekasyl00/Qadam_Diplom/tree/prob-period-1). Its PDF and Word report are based on the team's supplied Qadam_Predefense.docx. Preserve its layout when editing; REPORT.md is a text export of the final Word document.
 
-```bash
-python3 -m pip install python-docx pillow
-python3 docs/diploma/tools/build_report.py
-```
+The earlier tools/build_report.py is a legacy generator and does not reproduce the supplied Word layout. Edit the Word report directly, export it to PDF and refresh the text export together. Diagrams remain editable as SVG files and through tools/architecture_diagrams.py.
 
-Render and inspect the Word output after editing. Application source and Git history are preserved in this documentation revision.
+Render and inspect every page after editing, and update contents page numbers if pagination changes. Keep the tag fixed once the materials have been submitted. Application source and commit history are preserved.

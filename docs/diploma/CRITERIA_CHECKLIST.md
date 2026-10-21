@@ -15,7 +15,8 @@ Source: the supplied **До 24 октября.docx**, rechecked on 19 October 20
 | 7. Architecture | Section 7; diagrams/*.svg and *.png | Required context, use case and component diagrams present; ERD, activity and sequence also present. Technical peer review pending. |
 | 8. UX / prototype | Section 8; diagrams/workflow.svg; frontend and backend | Runnable local prototype and walkthrough documented. Fresh demonstration recording pending. |
 | 9. Verification and evaluation | Section 9, VERIFICATION.md and evidence schema | Baseline, conditions, paired design, quality/time/factuality measures and failure handling specified. Comparative study not yet conducted. |
-| 10. Management and risks | Section 10; live YouTrack; YOUTRACK_TASKS.md | Named owners, priorities, targets, acceptance criteria, dependencies and risks prepared. Personal YouTrack account mapping and peer review trail remain pending. |
+| 10. Management and risks | Section 10; live YouTrack; YOUTRACK_TASKS.md | Named owners, priorities, targets, acceptance criteria, dependencies and risks prepared. All three personal accounts are assigned; independent peer review remains pending. |
+| 11. Supervisor feedback | Section 11 | Supplied written approval and recommendations summarized with corresponding report changes. The suggested follow-up meeting and signed form are not claimed as completed. |
 
 ## Git repository requirements
 
@@ -29,15 +30,15 @@ Source: the supplied **До 24 октября.docx**, rechecked on 19 October 20
 | Progressive meaningful commits | Preserve existing history; record this revision as coherent documentation work. Current packaging cannot retrospectively prove weeks of progressive review. Future work must be tracked as it happens. |
 | Issue → branch → change → evidence | Use the actual YouTrack task ID in branch and commit/PR; add the resulting GitHub link to the issue. Deadline and named owner are in each issue description. |
 | Separate branches and peer review | Use a task branch for this revision. Another team member reviews the PR before merge into main. No self-authored review or fabricated approval. |
-| Submission tag | Create pre-defense-1 only after the team reviews and selects the submitted version. Do not move this tag after submission. Later stages use pre-defense-2 and final-pre-defense. |
+| Submission tag | The submission form requires prob-period-1, superseding the example pre-defense-1 in the general assignment. Consolidated Word and PDF belong to that version. Do not move the tag after submission. |
 | Demonstration of traceability | Show one real issue, its branch/PR, review comments, resulting revision and checks. Explain each member's own artifact and run instructions. |
 
 ## Gates still requiring the team
 
 1. Collect and document the required real-user discussions or client agreement.
 2. Have each member verify their contributions and read the key publications.
-3. Add member accounts to YouTrack and map named ownership to the actual accounts.
+3. Confirm supervisor and committee access to the private tracker; team account assignment is complete.
 4. Obtain another member's PR review; address comments and merge the accepted version.
-5. Tag and submit the reviewed version, keeping a receipt and outstanding-task summary.
+5. Submit the selected tagged version, keeping a receipt and outstanding-task summary.
 
 The material satisfies preparation coverage, but these missing evidence and review gates prevent an honest claim that every assessment requirement is already complete.

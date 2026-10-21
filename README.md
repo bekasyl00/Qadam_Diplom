@@ -258,7 +258,7 @@ The project studies how AI can assist the transformation of informal business ne
 
 [YouTrack project](https://bekasyl00.youtrack.cloud/projects/QADAM) · [Kanban board](https://bekasyl00.youtrack.cloud/agiles/204-1/218-1) · [Pre-defense documents](docs/diploma/README.md) · [Criteria checklist](docs/diploma/CRITERIA_CHECKLIST.md)
 
-Use individual accounts and issue-linked task branches. Submit a pull request with validation evidence and obtain another team member's review before merging to `main`. Record the reviewed submission using an immutable `pre-defense-1` tag. This revision does not fabricate earlier review or study evidence.
+Use individual accounts and issue-linked task branches. Submit a pull request with validation evidence and obtain another team member's review before merging to `main`. The submission form requires [`prob-period-1`](https://github.com/bekasyl00/Qadam_Diplom/tree/prob-period-1); keep this tag fixed after submission. The [consolidated PDF](docs/diploma/SE-2418_Zhaksylyk_ProbPeriod1.pdf) and [Word report](docs/diploma/Qadam_Predefense_Report.docx) describe this checkpoint. Publication does not establish independent review or completed study evidence.
 
 ## Deployment
 
